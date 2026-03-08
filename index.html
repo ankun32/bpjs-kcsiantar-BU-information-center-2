@@ -1,393 +1,806 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pusat Informasi Badan Usaha – BPJS Kesehatan Pematangsiantar</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="files/photos/siantar.png">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pusat Informasi Badan Usaha – BPJS Kesehatan KC Pematangsiantar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/png" href="files/photos/siantar.png"/>
 </head>
 <body>
 
-  <!-- ═══════════════════ NAVBAR ═══════════════════ -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-container">
-      <div class="nav-brand">
-        <div class="brand-logo">
-          <i class="fa-solid fa-shield-heart"></i>
-        </div>
-        <div class="brand-text">
-          <span class="brand-main">BPJS Kesehatan</span>
-          <span class="brand-sub">Cabang Pematangsiantar</span>
-        </div>
+<!-- ════════════════════════════════════
+     NAVBAR
+════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <!-- Brand -->
+    <a href="#beranda" class="nav-brand">
+      <img src="files/photos/logo-bpjs.png" alt="Logo BPJS Kesehatan" class="brand-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="brand-logo-fallback" style="display:none">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+      <div class="brand-text">
+        <span class="brand-main" data-i18n="brand_main">BPJS Kesehatan</span>
+        <span class="brand-sub"  data-i18n="brand_sub">KC Pematangsiantar</span>
+      </div>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#beranda"  class="nav-link active" data-i18n="nav_home">Beranda</a></li>
+      <li><a href="#layanan"  class="nav-link" data-i18n="nav_layanan">Informasi Layanan</a></li>
+      <li><a href="#panduan"  class="nav-link" data-i18n="nav_panduan">Panduan eDabu</a></li>
+      <li><a href="#news"     class="nav-link" data-i18n="nav_news">What's New</a></li>
+      <li><a href="#galeri"   class="nav-link" data-i18n="nav_gallery">Galeri</a></li>
+      <li><a href="#contact"  class="nav-link" data-i18n="nav_contact">Contact</a></li>
+      <li><a href="#lokasi"   class="nav-link" data-i18n="nav_lokasi">Lokasi</a></li>
+    </ul>
+
+    <!-- Right controls -->
+    <div class="nav-right">
+      <!-- Language switcher -->
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="id">
+          <span class="lang-flag">🇮🇩</span><span class="lang-code">ID</span>
+        </button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="en">
+          <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+        </button>
       </div>
 
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#beranda" class="nav-link active">Beranda</a></li>
-        <li><a href="#layanan" class="nav-link">Informasi Layanan</a></li>
-        <li><a href="#contact" class="nav-link">Contact Person</a></li>
-        <li><a href="#lokasi" class="nav-link">Lokasi Kantor</a></li>
-      </ul>
-
-      <div class="nav-right">
-        <!-- Dark / Light Toggle -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Ganti tema" title="Ganti tema gelap/terang">
-          <span class="toggle-track">
-            <span class="toggle-thumb">
-              <i class="fa-solid fa-sun  icon-light"></i>
-              <i class="fa-solid fa-moon icon-dark"></i>
-            </span>
+      <!-- Theme toggle -->
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="toggle-track">
+          <span class="toggle-thumb">
+            <i class="fa-solid fa-sun  icon-light"></i>
+            <i class="fa-solid fa-moon icon-dark"></i>
           </span>
-        </button>
+        </span>
+      </button>
 
-        <!-- Hamburger -->
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-          <span></span><span></span><span></span>
-        </button>
+      <!-- Hamburger -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="hero" id="beranda">
+  <!-- Animated mesh background -->
+  <div class="hero-mesh"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow-dot"></span>
+      <span data-i18n="hero_badge">Resmi &amp; Terpercaya</span>
+    </div>
+
+    <!-- BPJS logo large in hero -->
+    <div class="hero-logo-wrap">
+      <img src="files/photos/logo-bpjs.png" alt="BPJS Kesehatan" class="hero-logo"
+           onerror="this.style.display='none'"/>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="ht-line" data-i18n="hero_title1">Pusat Informasi</span>
+      <span class="ht-line ht-accent" data-i18n="hero_title2">Badan Usaha</span>
+      <span class="ht-line" data-i18n="hero_title3">BPJS Kesehatan</span>
+      <span class="ht-line ht-sub" data-i18n="hero_title4">KC Pematangsiantar</span>
+    </h1>
+
+    <p class="hero-subtitle" data-i18n="hero_sub">
+      Informasi layanan administrasi Badan Usaha dan Panduan Penggunaan <strong>eDabu</strong> untuk perusahaan Anda
+    </p>
+
+    <div class="hero-cta">
+      <a href="#layanan" class="btn btn-hero-primary">
+        <i class="fa-solid fa-book-open"></i>
+        <span data-i18n="btn_info">Lihat Informasi</span>
+      </a>
+      <a href="#contact" class="btn btn-hero-outline">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span data-i18n="btn_contact">Hubungi Kami</span>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">16+</span><span class="hstat-l" data-i18n="stat_layanan">Layanan Tersedia</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">4</span><span class="hstat-l" data-i18n="stat_petugas">Petugas Siap Bantu</span></div>
+      <div class="hstat-sep"></div>
+      <div class="hstat"><span class="hstat-n">24/7</span><span class="hstat-l" data-i18n="stat_online">Info Online</span></div>
+    </div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span data-i18n="scroll_down">Scroll ke bawah</span>
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     WHAT'S NEW / TICKER
+════════════════════════════════════ -->
+<div class="news-ticker">
+  <div class="ticker-label">
+    <i class="fa-solid fa-bolt"></i>
+    <span data-i18n="ticker_label">Terbaru</span>
+  </div>
+  <div class="ticker-track">
+    <div class="ticker-items" id="tickerItems">
+      <span data-i18n="tick1">📢 User Manual eDabu versi 7.14.0 telah dirilis</span>
+      <span data-i18n="tick2">📋 Format baru Penonaktifan Pekerja sudah tersedia</span>
+      <span data-i18n="tick3">🏥 Jam pelayanan: Senin–Jumat 09.00–15.00 WIB</span>
+      <span data-i18n="tick4">📞 Hotline BPJS Kesehatan: 165</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     INFORMASI LAYANAN (5 cards)
+════════════════════════════════════ -->
+<section class="section-wrap layanan-section" id="layanan">
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-eyebrow"><i class="fa-solid fa-folder-open"></i> <span data-i18n="sec_doc_tag">Dokumen &amp; Panduan</span></div>
+      <h2 class="section-title" data-i18n="sec_layanan_title">Informasi Layanan</h2>
+      <p class="section-desc" data-i18n="sec_layanan_desc">Unduh dokumen panduan dan formulir yang Anda butuhkan untuk administrasi kepesertaan Badan Usaha.</p>
+    </div>
+
+    <div class="cards-grid">
+
+      <div class="info-card" data-delay="0">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#0077cc"><i class="fa-solid fa-user-minus"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="card1_title">Tata Cara Penonaktifan Pekerja</h3>
+          <p class="card-desc"  data-i18n="card1_desc">Langkah-langkah menonaktifkan data pekerja melalui aplikasi eDabu secara benar dan tepat.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/TATA CARA PENONAKTIFAN PEKERJA DARI EDABU NEW.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="80">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#00a86b"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_program">Program</span>
+          <h3 class="card-title" data-i18n="card2_title">Program REHAB Mandiri/Alih Segmen</h3>
+          <p class="card-desc"  data-i18n="card2_desc">Rencana Pembayaran Bertahap (REHAB) — solusi kemudahan pelunasan tunggakan iuran Mandiri/Alih Segmen.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/REHAB.jpg" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-image"></i> JPG</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="160">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#f77f00"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="card3_title">Tata Cara Ubah Gaji dari eDabu</h3>
+          <p class="card-desc"  data-i18n="card3_desc">Panduan lengkap cara mengubah data gaji / upah peserta melalui portal eDabu Badan Usaha.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/TATA CARA UBAH GAJI EDABU BADAN USAHA.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="240">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#9b5de5"><i class="fa-solid fa-file-arrow-down"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_formulir">Formulir</span>
+          <h3 class="card-title" data-i18n="card4_title">Format Penonaktifan Pekerja</h3>
+          <p class="card-desc"  data-i18n="card4_desc">Template / formulir resmi yang harus diisi untuk pengajuan penonaktifan peserta.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/Format Penonaktifan Pekerja.docx" download class="btn-card">
+            <i class="fa-solid fa-download"></i> <span data-i18n="btn_download">Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-word"></i> DOCX</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="320">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#e63946"><i class="fa-solid fa-book"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_manual">Manual</span>
+          <h3 class="card-title" data-i18n="card5_title">User Manual eDabu</h3>
+          <p class="card-desc"  data-i18n="card5_desc">Panduan lengkap penggunaan aplikasi eDabu versi terbaru untuk Badan Usaha.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/Usman Edabu BU v 7.14.0.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     PANDUAN EDABU (11 sub-menu)
+════════════════════════════════════ -->
+<section class="section-wrap panduan-section" id="panduan">
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-eyebrow"><i class="fa-solid fa-laptop-code"></i> <span data-i18n="sec_edabu_tag">Panduan eDabu</span></div>
+      <h2 class="section-title" data-i18n="sec_edabu_title">Panduan Lengkap eDabu</h2>
+      <p class="section-desc" data-i18n="sec_edabu_desc">Kumpulan panduan administrasi kepesertaan Badan Usaha melalui aplikasi eDabu.</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="filter-tabs" id="panduanFilter">
+      <button class="ftab active" data-filter="all" data-i18n="filter_all">Semua</button>
+      <button class="ftab" data-filter="daftar" data-i18n="filter_daftar">Pendaftaran</button>
+      <button class="ftab" data-filter="keluarga" data-i18n="filter_keluarga">Keluarga</button>
+      <button class="ftab" data-filter="lainnya" data-i18n="filter_lainnya">Lainnya</button>
+    </div>
+
+    <div class="cards-grid panduan-grid" id="panduanGrid">
+
+      <div class="info-card" data-delay="0" data-cat="daftar">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#0077cc"><i class="fa-solid fa-user-plus"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p1_title">Pendaftaran Karyawan Baru Belum Terdaftar JKN</h3>
+          <p class="card-desc"  data-i18n="p1_desc">Langkah pendaftaran peserta baru yang belum terdaftar di program JKN melalui eDabu.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/pendaftaran-karyawan-baru.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="60" data-cat="daftar">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#0099cc"><i class="fa-solid fa-people-arrows"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p2_title">Pendaftaran Pekerja dari ISAT di BU yang Sama</h3>
+          <p class="card-desc"  data-i18n="p2_desc">Proses pendaftaran pekerja yang berasal dari ISAT dalam satu Badan Usaha yang sama.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/pendaftaran-isat.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="120" data-cat="keluarga">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#00a86b"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p3_title">Mutasi Anggota Keluarga Tambahan</h3>
+          <p class="card-desc"  data-i18n="p3_desc">Panduan proses mutasi atau perpindahan anggota keluarga tambahan peserta.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/mutasi-keluarga.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="180" data-cat="keluarga">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#f77f00"><i class="fa-solid fa-child-reaching"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p4_title">Re-aktivasi Anak Usia di atas 21 Tahun</h3>
+          <p class="card-desc"  data-i18n="p4_desc">Prosedur re-aktivasi kepesertaan anak yang telah berusia di atas 21 tahun.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/reaktivasi-anak.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="240" data-cat="keluarga">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#e63946"><i class="fa-solid fa-user-xmark"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p5_title">Penonaktifan Anggota Keluarga Tidak Ditanggung/Meninggal</h3>
+          <p class="card-desc"  data-i18n="p5_desc">Prosedur penonaktifan anggota keluarga yang tidak lagi ditanggung atau telah meninggal dunia.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/penonaktifan-keluarga.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="300" data-cat="daftar">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#9b5de5"><i class="fa-solid fa-earth-asia"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p6_title">Pendaftaran ISA WNA Belum Terdaftar JKN</h3>
+          <p class="card-desc"  data-i18n="p6_desc">Panduan mendaftarkan Istri/Suami/Anak (ISA) Warga Negara Asing yang belum terdaftar JKN.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/pendaftaran-isa-wna.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="360" data-cat="keluarga">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#e9c46a"><i class="fa-solid fa-family"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p7_title">Tambah Keluarga dari Segmen Lain</h3>
+          <p class="card-desc"  data-i18n="p7_desc">Cara menambahkan anggota keluarga yang sebelumnya terdaftar di segmen peserta yang berbeda.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/tambah-keluarga-segmen.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="420" data-cat="keluarga">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#2a9d8f"><i class="fa-solid fa-user-group"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p8_title">Tambah Keluarga Baru</h3>
+          <p class="card-desc"  data-i18n="p8_desc">Panduan menambahkan anggota keluarga baru (pasangan/anak) ke dalam kepesertaan JKN.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/tambah-keluarga-baru.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="480" data-cat="daftar">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#457b9d"><i class="fa-solid fa-passport"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p9_title">Pendaftaran Pekerja WNA Belum Terdaftar JKN</h3>
+          <p class="card-desc"  data-i18n="p9_desc">Prosedur mendaftarkan pekerja Warga Negara Asing yang belum memiliki kepesertaan JKN.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/pendaftaran-wna.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="540" data-cat="daftar">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#c77dff"><i class="fa-solid fa-arrows-rotate"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p10_title">Pendaftaran Karyawan Mutasi PBPU ke PPU</h3>
+          <p class="card-desc"  data-i18n="p10_desc">Panduan proses peralihan kepesertaan dari segmen PBPU ke segmen PPU Badan Usaha.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/mutasi-pbpu-ppu.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+      <div class="info-card" data-delay="600" data-cat="lainnya">
+        <div class="card-glow"></div>
+        <div class="card-icon-wrap" style="--cc:#e76f51"><i class="fa-solid fa-building-user"></i></div>
+        <div class="card-body">
+          <span class="card-tag" data-i18n="tag_panduan">Panduan</span>
+          <h3 class="card-title" data-i18n="p11_title">Sentra Layanan Administrasi Kepesertaan (Selaras)</h3>
+          <p class="card-desc"  data-i18n="p11_desc">Panduan penggunaan layanan Selaras untuk administrasi kepesertaan Badan Usaha secara terpadu.</p>
+        </div>
+        <div class="card-footer">
+          <a href="files/panduan/selaras.pdf" target="_blank" class="btn-card">
+            <i class="fa-solid fa-eye"></i> <span data-i18n="btn_view">Lihat / Unduh</span>
+          </a>
+          <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     WHAT'S NEW / BERITA
+════════════════════════════════════ -->
+<section class="section-wrap news-section" id="news">
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-eyebrow"><i class="fa-solid fa-newspaper"></i> <span data-i18n="sec_news_tag">Informasi Terkini</span></div>
+      <h2 class="section-title" data-i18n="sec_news_title">What's New</h2>
+      <p class="section-desc" data-i18n="sec_news_desc">Informasi dan pengumuman terbaru dari BPJS Kesehatan KC Pematangsiantar.</p>
+    </div>
+
+    <div class="news-grid">
+
+      <div class="news-card news-featured" data-delay="0">
+        <div class="news-img-wrap">
+          <img src="files/photos/news1.jpg" alt="News 1" class="news-img"
+               onerror="this.parentElement.classList.add('news-img-fallback')"/>
+          <div class="news-img-overlay"></div>
+          <span class="news-badge news-badge-hot" data-i18n="badge_new">Baru</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span class="news-cat" data-i18n="ncat_update">Update</span>
+            <span class="news-date"><i class="fa-regular fa-calendar"></i> Maret 2025</span>
+          </div>
+          <h3 class="news-title" data-i18n="news1_title">User Manual eDabu Versi 7.14.0 Telah Dirilis</h3>
+          <p class="news-excerpt" data-i18n="news1_desc">Versi terbaru User Manual eDabu kini tersedia dengan panduan fitur-fitur baru yang lebih lengkap dan mudah dipahami.</p>
+          <a href="files/Usman Edabu BU v 7.14.0.pdf" target="_blank" class="news-link">
+            <span data-i18n="btn_readmore">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="news-card" data-delay="100">
+        <div class="news-img-wrap">
+          <img src="files/photos/news2.jpg" alt="News 2" class="news-img"
+               onerror="this.parentElement.classList.add('news-img-fallback')"/>
+          <div class="news-img-overlay"></div>
+          <span class="news-badge" data-i18n="badge_info">Info</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span class="news-cat" data-i18n="ncat_layanan">Layanan</span>
+            <span class="news-date"><i class="fa-regular fa-calendar"></i> Februari 2025</span>
+          </div>
+          <h3 class="news-title" data-i18n="news2_title">Program REHAB Mandiri/Alih Segmen</h3>
+          <p class="news-excerpt" data-i18n="news2_desc">Program Rencana Pembayaran Bertahap hadir untuk membantu peserta melunasi tunggakan iuran secara lebih mudah.</p>
+          <a href="files/REHAB.jpg" target="_blank" class="news-link">
+            <span data-i18n="btn_readmore">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="news-card" data-delay="200">
+        <div class="news-img-wrap">
+          <img src="files/photos/news3.jpg" alt="News 3" class="news-img"
+               onerror="this.parentElement.classList.add('news-img-fallback')"/>
+          <div class="news-img-overlay"></div>
+          <span class="news-badge" data-i18n="badge_pengumuman">Pengumuman</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span class="news-cat" data-i18n="ncat_admin">Administrasi</span>
+            <span class="news-date"><i class="fa-regular fa-calendar"></i> Januari 2025</span>
+          </div>
+          <h3 class="news-title" data-i18n="news3_title">Layanan Selaras Kini Tersedia</h3>
+          <p class="news-excerpt" data-i18n="news3_desc">Sentra Layanan Administrasi Kepesertaan (Selaras) hadir sebagai solusi terpadu administrasi kepesertaan Badan Usaha.</p>
+          <a href="files/panduan/selaras.pdf" target="_blank" class="news-link">
+            <span data-i18n="btn_readmore">Baca Selengkapnya</span> <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     GALERI
+════════════════════════════════════ -->
+<section class="section-wrap galeri-section" id="galeri">
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-eyebrow"><i class="fa-solid fa-images"></i> <span data-i18n="sec_gallery_tag">Dokumentasi</span></div>
+      <h2 class="section-title" data-i18n="sec_gallery_title">Galeri</h2>
+      <p class="section-desc" data-i18n="sec_gallery_desc">Dokumentasi kegiatan dan pelayanan BPJS Kesehatan KC Pematangsiantar.</p>
+    </div>
+
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gal-item gal-wide" data-delay="0">
+        <img src="files/photos/galeri1.jpg" alt="Kegiatan 1" class="gal-img"
+             onerror="this.parentElement.classList.add('gal-fallback')"/>
+        <div class="gal-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <span data-i18n="gal1_cap">Pelayanan Peserta</span>
+        </div>
+      </div>
+      <div class="gal-item" data-delay="60">
+        <img src="files/photos/galeri2.jpg" alt="Kegiatan 2" class="gal-img"
+             onerror="this.parentElement.classList.add('gal-fallback')"/>
+        <div class="gal-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <span data-i18n="gal2_cap">Sosialisasi Badan Usaha</span>
+        </div>
+      </div>
+      <div class="gal-item" data-delay="120">
+        <img src="files/photos/galeri3.jpg" alt="Kegiatan 3" class="gal-img"
+             onerror="this.parentElement.classList.add('gal-fallback')"/>
+        <div class="gal-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <span data-i18n="gal3_cap">Pelatihan eDabu</span>
+        </div>
+      </div>
+      <div class="gal-item" data-delay="180">
+        <img src="files/photos/galeri4.jpg" alt="Kegiatan 4" class="gal-img"
+             onerror="this.parentElement.classList.add('gal-fallback')"/>
+        <div class="gal-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <span data-i18n="gal4_cap">Kantor Pelayanan</span>
+        </div>
+      </div>
+      <div class="gal-item gal-tall" data-delay="240">
+        <img src="files/photos/galeri5.jpg" alt="Kegiatan 5" class="gal-img"
+             onerror="this.parentElement.classList.add('gal-fallback')"/>
+        <div class="gal-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <span data-i18n="gal5_cap">Tim BPJS Kesehatan</span>
+        </div>
+      </div>
+      <div class="gal-item" data-delay="300">
+        <img src="files/photos/galeri6.jpg" alt="Kegiatan 6" class="gal-img"
+             onerror="this.parentElement.classList.add('gal-fallback')"/>
+        <div class="gal-overlay">
+          <i class="fa-solid fa-magnifying-glass-plus"></i>
+          <span data-i18n="gal6_cap">Kegiatan Sosial</span>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
 
-  <!-- ═══════════════════ HERO ═══════════════════ -->
-  <section class="hero" id="beranda">
-    <div class="hero-bg-shapes">
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
-      <div class="shape shape-3"></div>
-      <div class="shape shape-4"></div>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lb-prev"  id="lbPrev"><i class="fa-solid fa-chevron-left"></i></button>
+    <button class="lb-next"  id="lbNext"><i class="fa-solid fa-chevron-right"></i></button>
+    <div class="lb-img-wrap">
+      <img src="" alt="" class="lb-img" id="lbImg"/>
+      <div class="lb-caption" id="lbCaption"></div>
     </div>
-    <div class="hero-container">
-      <div class="hero-badge">
-        <i class="fa-solid fa-circle-check"></i>
-        <span>Resmi &amp; Terpercaya</span>
-      </div>
-      <h1 class="hero-title">
-       <span class="highlight"> Pusat Informasi
-        Badan Usaha<br />
-        BPJS Kesehatan
-        KC </br>
-        Pematangsiantar</span>
-      </h1>
-      <p class="hero-subtitle">
-        Informasi layanan administrasi Badan Usaha dan
-        Panduan Penggunaan <strong>eDabu</strong> untuk perusahaan Anda
-      </p>
-      <div class="hero-actions">
-        <a href="#layanan" class="btn btn-primary">
-          <i class="fa-solid fa-book-open"></i>
-          Lihat Informasi
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CONTACT PERSON
+════════════════════════════════════ -->
+<section class="section-wrap contact-section" id="contact">
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-eyebrow"><i class="fa-solid fa-headset"></i> <span data-i18n="sec_contact_tag">Tim Kami</span></div>
+      <h2 class="section-title" data-i18n="sec_contact_title">Contact Person</h2>
+      <p class="section-desc" data-i18n="sec_contact_desc">Hubungi petugas kami langsung melalui WhatsApp untuk informasi dan bantuan lebih lanjut.</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <div class="contact-card" data-delay="0">
+        <div class="contact-avatar-photo" style="--rc:#009FE3">
+          <img src="files/photos/evalyn.jpg" alt="Evalyn Lumban Raja" class="contact-photo"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="contact-photo-fallback" style="--ac:#009FE3;display:none"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="avatar-ring"></div>
+        </div>
+        <div class="contact-info">
+          <h3>Evalyn Lumban Raja</h3>
+          <p class="contact-role" data-i18n="role_officer">Petugas Badan Usaha</p>
+        </div>
+        <a href="https://wa.me/628116200840" target="_blank" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i><span data-i18n="btn_wa">Chat WhatsApp</span>
         </a>
-        <a href="#contact" class="btn btn-outline">
-          <i class="fa-brands fa-whatsapp"></i>
-          Hubungi Kami
+      </div>
+
+      <div class="contact-card" data-delay="80">
+        <div class="contact-avatar-photo" style="--rc:#0077cc">
+          <img src="files/photos/dzaky.jpg" alt="Muhammad Dzaky" class="contact-photo"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="contact-photo-fallback" style="--ac:#0077cc;display:none"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="avatar-ring"></div>
+        </div>
+        <div class="contact-info">
+          <h3>Muhammad Dzaky</h3>
+          <p class="contact-role" data-i18n="role_officer">Petugas Badan Usaha</p>
+        </div>
+        <a href="https://wa.me/6285275353860" target="_blank" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i><span data-i18n="btn_wa">Chat WhatsApp</span>
         </a>
       </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-num">5+</span>
-          <span class="stat-label">Layanan Tersedia</span>
+
+      <div class="contact-card" data-delay="160">
+        <div class="contact-avatar-photo" style="--rc:#f77f00">
+          <img src="files/photos/andri.jpg" alt="Andri Dwi Surya" class="contact-photo"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="contact-photo-fallback" style="--ac:#f77f00;display:none"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="avatar-ring"></div>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">4</span>
-          <span class="stat-label">Petugas Siap Bantu</span>
+        <div class="contact-info">
+          <h3>Andri Dwi Surya</h3>
+          <p class="contact-role" data-i18n="role_officer">Petugas Badan Usaha</p>
         </div>
-        <div class="stat-divider"></div>
-        <div class="stat">
-          <span class="stat-num">24/7</span>
-          <span class="stat-label">Info Online</span>
+        <a href="https://wa.me/6285762338553" target="_blank" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i><span data-i18n="btn_wa">Chat WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="contact-card" data-delay="240">
+        <div class="contact-avatar-photo" style="--rc:#9b5de5">
+          <img src="files/photos/junaina.jpg" alt="Junaina Sahputri Sagala" class="contact-photo"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="contact-photo-fallback" style="--ac:#9b5de5;display:none"><i class="fa-solid fa-user-tie"></i></div>
+          <div class="avatar-ring"></div>
         </div>
+        <div class="contact-info">
+          <h3>Junaina Sahputri Sagala</h3>
+          <p class="contact-role" data-i18n="role_officer">Petugas Badan Usaha</p>
+        </div>
+        <a href="https://wa.me/6287751077004" target="_blank" class="btn-whatsapp">
+          <i class="fa-brands fa-whatsapp"></i><span data-i18n="btn_wa">Chat WhatsApp</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     LOKASI
+════════════════════════════════════ -->
+<section class="section-wrap lokasi-section" id="lokasi">
+  <div class="section-container">
+    <div class="section-header">
+      <div class="section-eyebrow"><i class="fa-solid fa-location-dot"></i> <span data-i18n="sec_lokasi_tag">Kantor Kami</span></div>
+      <h2 class="section-title" data-i18n="sec_lokasi_title">Lokasi Kantor</h2>
+      <p class="section-desc" data-i18n="sec_lokasi_desc">Kunjungi kantor kami pada jam operasional untuk pelayanan langsung.</p>
+    </div>
+    <div class="lokasi-wrapper">
+      <div class="lokasi-info">
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-building"></i></div>
+          <div>
+            <strong data-i18n="lokasi_name">BPJS Kesehatan KC Pematangsiantar</strong>
+            <p>Jl. Perintis Kemerdekaan No. 7<br/>Pematangsiantar, Sumatera Utara</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div>
+            <strong data-i18n="lokasi_jam">Jam Operasional</strong>
+            <p data-i18n="lokasi_jam_val">Senin – Jumat: 09.00 – 15.00 WIB</p>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+          <div>
+            <strong data-i18n="lokasi_telp">Hotline</strong>
+            <p>165 (BPJS Kesehatan)</p>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=BPJS+Kesehatan+Pematangsiantar" target="_blank"
+           class="btn btn-primary" style="margin-top:.5rem;display:inline-flex">
+          <i class="fa-solid fa-diamond-turn-right"></i>
+          <span data-i18n="btn_direction">Petunjuk Arah</span>
+        </a>
+      </div>
+      <div class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.278!2d99.0600!3d2.9595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302153a4a1111111%3A0x111111111111111!2sBPJS%20Kesehatan%20Cabang%20Pematangsiantar!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
+          width="100%" height="380" style="border:0" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Lokasi BPJS Kesehatan Pematangsiantar"></iframe>
       </div>
     </div>
-    <div class="hero-scroll-hint">
-      <span>Scroll ke bawah</span>
-      <i class="fa-solid fa-chevron-down"></i>
-    </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══════════════════ INFORMASI LAYANAN ═══════════════════ -->
-  <section class="layanan" id="layanan">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-tag">
-          <i class="fa-solid fa-folder-open"></i> Dokumen &amp; Panduan
-        </div>
-        <h2 class="section-title">Informasi Layanan</h2>
-        <p class="section-desc">
-          Unduh dokumen panduan dan formulir yang Anda butuhkan untuk administrasi kepesertaan Badan Usaha.
-        </p>
-      </div>
-
-      <div class="cards-grid">
-
-        <!-- Card 1 -->
-        <div class="info-card" data-delay="0">
-          <div class="card-icon-wrap" style="--card-color: #0077cc;">
-            <i class="fa-solid fa-user-minus"></i>
-          </div>
-          <div class="card-body">
-            <span class="card-tag">Panduan</span>
-            <h3 class="card-title">Tata Cara Penonaktifan Pekerja</h3>
-            <p class="card-desc">Langkah-langkah menonaktifkan data pekerja melalui aplikasi eDabu secara benar dan tepat.</p>
-          </div>
-          <div class="card-footer">
-            <a href="files/TATA CARA PENONAKTIFAN PEKERJA DARI EDABU NEW.pdf" target="_blank" class="btn-card">
-              <i class="fa-solid fa-eye"></i> Lihat / Unduh
-            </a>
-            <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="info-card" data-delay="80">
-          <div class="card-icon-wrap" style="--card-color: #00a86b;">
-            <i class="fa-solid fa-hand-holding-dollar"></i>
-          </div>
-          <div class="card-body">
-            <span class="card-tag">Program</span>
-            <h3 class="card-title">Program REHAB Mandiri/Alih Segmen</h3>
-            <p class="card-desc">Rencana Pembayaran Bertahap (REHAB) — solusi kemudahan pelunasan tunggakan iuran Mandiri/Alih Segmen</p>
-          </div>
-          <div class="card-footer">
-            <a href="files/REHAB.jpg" target="_blank" class="btn-card">
-              <i class="fa-solid fa-eye"></i> Lihat / Unduh
-            </a>
-            <span class="card-type"><i class="fa-solid fa-file-image"></i> JPG</span>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="info-card" data-delay="160">
-          <div class="card-icon-wrap" style="--card-color: #f77f00;">
-            <i class="fa-solid fa-money-bill-trend-up"></i>
-          </div>
-          <div class="card-body">
-            <span class="card-tag">Panduan</span>
-            <h3 class="card-title">Tata Cara Ubah Gaji dari eDabu</h3>
-            <p class="card-desc">Panduan lengkap cara mengubah data gaji / upah peserta melalui portal eDabu Badan Usaha.</p>
-          </div>
-          <div class="card-footer">
-            <a href="files/TATA CARA UBAH GAJI EDABU BADAN USAHA.pdf" target="_blank" class="btn-card">
-              <i class="fa-solid fa-eye"></i> Lihat / Unduh
-            </a>
-            <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
-          </div>
-        </div>
-
-        <!-- Card 4 -->
-        <div class="info-card" data-delay="240">
-          <div class="card-icon-wrap" style="--card-color: #9b5de5;">
-            <i class="fa-solid fa-file-arrow-down"></i>
-          </div>
-          <div class="card-body">
-            <span class="card-tag">Formulir</span>
-            <h3 class="card-title">Format Penonaktifan Pekerja</h3>
-            <p class="card-desc">Template / formulir resmi yang harus diisi untuk pengajuan penonaktifan peserta.</p>
-          </div>
-          <div class="card-footer">
-            <a href="files/Format Penonaktifan Pekerja.docx" download class="btn-card">
-              <i class="fa-solid fa-download"></i> Unduh
-            </a>
-            <span class="card-type"><i class="fa-solid fa-file-word"></i> DOCX</span>
-          </div>
-        </div>
-
-        <!-- Card 5 -->
-        <div class="info-card" data-delay="320">
-          <div class="card-icon-wrap" style="--card-color: #e63946;">
-            <i class="fa-solid fa-book"></i>
-          </div>
-          <div class="card-body">
-            <span class="card-tag">Manual</span>
-            <h3 class="card-title">User Manual eDabu</h3>
-            <p class="card-desc">Panduan lengkap penggunaan aplikasi eDabu versi terbaru untuk Badan Usaha.</p>
-          </div>
-          <div class="card-footer">
-            <a href="files/Usman Edabu BU v 7.14.0.pdf" target="_blank" class="btn-card">
-              <i class="fa-solid fa-eye"></i> Lihat / Unduh
-            </a>
-            <span class="card-type"><i class="fa-solid fa-file-pdf"></i> PDF</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ CONTACT PERSON ═══════════════════ -->
-  <section class="contact" id="contact">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-tag">
-          <i class="fa-solid fa-headset"></i> Tim Kami
-        </div>
-        <h2 class="section-title">Contact Person</h2>
-        <p class="section-desc">
-          Hubungi petugas kami langsung melalui WhatsApp untuk informasi dan bantuan lebih lanjut.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-
-        <!-- Contact 1 -->
-        <div class="contact-card">
-          <div class="contact-avatar-photo" style="--ring-color: #009FE3;">
-            <img src="files/photos/evalyn.jpg" alt="Foto Evalyn Lumban Raja" class="contact-photo"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="contact-photo-fallback" style="--avatar-color: #009FE3; display:none;">
-              <i class="fa-solid fa-user-tie"></i>
-            </div>
-            <div class="avatar-ring"></div>
-          </div>
-          <div class="contact-info">
-            <h3>Evalyn Lumban Raja</h3>
-            <p class="contact-role">Petugas Badan Usaha</p>
-          </div>
-          <a href="https://wa.me/628116200840" target="_blank" class="btn-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Chat WhatsApp</span>
-          </a>
-        </div>
-
-        <!-- Contact 2 -->
-        <div class="contact-card">
-          <div class="contact-avatar-photo" style="--ring-color: #0077cc;">
-            <img src="files/photos/dzaky.jpg" alt="Foto Muhammad Dzaky" class="contact-photo"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="contact-photo-fallback" style="--avatar-color: #0077cc; display:none;">
-              <i class="fa-solid fa-user-tie"></i>
-            </div>
-            <div class="avatar-ring"></div>
-          </div>
-          <div class="contact-info">
-            <h3>Muhammad Dzaky</h3>
-            <p class="contact-role">Petugas Badan Usaha</p>
-          </div>
-          <a href="https://wa.me/6285275353860" target="_blank" class="btn-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Chat WhatsApp</span>
-          </a>
-        </div>
-
-        <!-- Contact 3 -->
-        <div class="contact-card">
-          <div class="contact-avatar-photo" style="--ring-color: #f77f00;">
-            <img src="files/photos/andri.jpg" alt="Foto Andri Dwi Surya" class="contact-photo"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="contact-photo-fallback" style="--avatar-color: #f77f00; display:none;">
-              <i class="fa-solid fa-user-tie"></i>
-            </div>
-            <div class="avatar-ring"></div>
-          </div>
-          <div class="contact-info">
-            <h3>Andri Dwi Surya</h3>
-            <p class="contact-role">Petugas Badan Usaha</p>
-          </div>
-          <a href="https://wa.me/6285762338553" target="_blank" class="btn-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Chat WhatsApp</span>
-          </a>
-        </div>
-
-        <!-- Contact 4 -->
-        <div class="contact-card">
-          <div class="contact-avatar-photo" style="--ring-color: #9b5de5;">
-            <img src="files/photos/junaina.jpg" alt="Foto Junaina Sahputri Sagala" class="contact-photo"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
-            <div class="contact-photo-fallback" style="--avatar-color: #9b5de5; display:none;">
-              <i class="fa-solid fa-user-tie"></i>
-            </div>
-            <div class="avatar-ring"></div>
-          </div>
-          <div class="contact-info">
-            <h3>Junaina Sahputri Sagala</h3>
-            <p class="contact-role">Petugas Badan Usaha</p>
-          </div>
-          <a href="https://wa.me/6287751077004" target="_blank" class="btn-whatsapp">
-            <i class="fa-brands fa-whatsapp"></i>
-            <span>Chat WhatsApp</span>
-          </a>
-        </div>
-
-      </div>
-
-      
-    </div>
-  </section>
-
-  <!-- ═══════════════════ LOKASI ═══════════════════ -->
-  <section class="lokasi" id="lokasi">
-    <div class="section-container">
-      <div class="section-header">
-        <div class="section-tag">
-          <i class="fa-solid fa-location-dot"></i> Kantor Kami
-        </div>
-        <h2 class="section-title">Lokasi Kantor</h2>
-        <p class="section-desc">
-          Kunjungi kantor kami pada jam operasional untuk pelayanan langsung.
-        </p>
-      </div>
-
-      <div class="lokasi-wrapper">
-        <div class="lokasi-info">
-          <div class="info-item">
-            <div class="info-icon"><i class="fa-solid fa-building"></i></div>
-            <div>
-              <strong>BPJS Kesehatan Cabang Pematangsiantar</strong>
-              <p>Jl. Perintis Kemerdekaan No. 7<br />Pematangsiantar, Sumatera Utara</p>
-            </div>
-          </div>
-          <div class="info-item">
-            <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <strong>Jam Operasional</strong>
-              <p>Senin – Jumat: 09.00 – 15.00 WIB</p>
-            </div>
-          </div>
-          
-          <a href="https://maps.google.com/?q=BPJS+Kesehatan+Pematangsiantar" target="_blank"
-            class="btn btn-primary" style="margin-top:0.5rem; display:inline-flex;">
-            <i class="fa-solid fa-diamond-turn-right"></i> Petunjuk Arah
-          </a>
-        </div>
-
-        <div class="map-wrapper">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.278!2d99.0600!3d2.9595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302153a4a1111111%3A0x111111111111111!2sBPJS%20Kesehatan%20Cabang%20Pematangsiantar!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid"
-            width="100%" height="380" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Lokasi BPJS Kesehatan Pematangsiantar"></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════ FOOTER ═══════════════════ -->
-  <footer class="footer">
+<!-- ════════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
     <div class="footer-container">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          <i class="fa-solid fa-shield-heart"></i>
+      <div class="footer-col footer-brand-col">
+        <div class="footer-brand">
+          <img src="files/photos/logo-bpjs.png" alt="BPJS" class="footer-logo-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="footer-logo-fallback" style="display:none"><i class="fa-solid fa-shield-heart"></i></div>
+          <div>
+            <div class="footer-name">BPJS Kesehatan</div>
+            <div class="footer-branch" data-i18n="brand_sub">KC Pematangsiantar</div>
+          </div>
         </div>
-        <div>
-          <div class="footer-name">BPJS Kesehatan</div>
-          <div class="footer-branch">Cabang Pematangsiantar</div>
+        <p class="footer-tagline" data-i18n="footer_tagline">Melayani dengan sepenuh hati untuk Indonesia yang lebih sehat.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/bpjskesehatan" target="_blank" class="social-btn" aria-label="Instagram">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/bpjskesehatan" target="_blank" class="social-btn" aria-label="Facebook">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://twitter.com/BPJSKesehatanRI" target="_blank" class="social-btn" aria-label="Twitter/X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="https://www.youtube.com/@BPJSKesehatanRI" target="_blank" class="social-btn" aria-label="YouTube">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
         </div>
       </div>
-      <div class="footer-addr">
-        <i class="fa-solid fa-location-dot"></i>
-        Jl. Perintis Kemerdekaan No. 7, Pematangsiantar, Sumatera Utara
+
+      <div class="footer-col">
+        <h4 class="footer-heading" data-i18n="footer_links">Tautan Cepat</h4>
+        <ul class="footer-links">
+          <li><a href="#beranda"  data-i18n="nav_home">Beranda</a></li>
+          <li><a href="#layanan"  data-i18n="nav_layanan">Informasi Layanan</a></li>
+          <li><a href="#panduan"  data-i18n="nav_panduan">Panduan eDabu</a></li>
+          <li><a href="#news"     data-i18n="nav_news">What's New</a></li>
+          <li><a href="#galeri"   data-i18n="nav_gallery">Galeri</a></li>
+          <li><a href="#contact"  data-i18n="nav_contact">Contact Person</a></li>
+          <li><a href="#lokasi"   data-i18n="nav_lokasi">Lokasi Kantor</a></li>
+        </ul>
       </div>
-      <div class="footer-copy">
-        &copy; <span id="year"></span> BPJS Kesehatan Cabang Pematangsiantar. Semua hak dilindungi.
+
+      <div class="footer-col">
+        <h4 class="footer-heading" data-i18n="footer_contact">Kontak</h4>
+        <ul class="footer-contact-list">
+          <li><i class="fa-solid fa-location-dot"></i><span>Jl. Perintis Kemerdekaan No. 7, Pematangsiantar</span></li>
+          <li><i class="fa-solid fa-phone"></i><span>165 (Hotline Gratis)</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-i18n="lokasi_jam_val">Senin–Jumat: 09.00–15.00 WIB</span></li>
+          <li><i class="fa-solid fa-globe"></i><span>www.bpjs-kesehatan.go.id</span></li>
+        </ul>
       </div>
     </div>
-  </footer>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-container">
+      <p>&copy; <span id="year"></span> BPJS Kesehatan KC Pematangsiantar. <span data-i18n="footer_rights">Semua hak dilindungi.</span></p>
+      <p class="footer-made" data-i18n="footer_made">Pusat Informasi Badan Usaha</p>
+    </div>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="script.js"></script>
 </body>
 </html>
