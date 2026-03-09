@@ -786,7 +786,164 @@ section[id] { scroll-margin-top: 64px; }
 .map-wrapper { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-md); border: 1px solid var(--border); width: 100%; }
 .map-wrapper iframe { display: block; width: 100%; }
 
-/* ── 17. FOOTER ── */
+/* ── CONTACT GROUP LABELS ── */
+.contact-group-label {
+  display: flex; align-items: center; gap: .85rem;
+  margin: clamp(1.6rem, 3.5vw, 2.4rem) 0 1rem;
+}
+.contact-group-label:first-of-type { margin-top: 0; }
+.cg-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+.cg-badge {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .35rem .9rem; border-radius: var(--r-full);
+  font-size: clamp(.7rem,1.6vw,.78rem); font-weight: 700;
+  white-space: nowrap; letter-spacing: .02em;
+  border: 1px solid currentColor;
+}
+.cg-badge-leader {
+  color: #006db3;
+  background: linear-gradient(135deg, rgba(0,109,179,.12), rgba(0,159,227,.08));
+  border-color: rgba(0,109,179,.3);
+}
+.cg-badge-admin {
+  color: #2a9d8f;
+  background: linear-gradient(135deg, rgba(42,157,143,.12), rgba(42,157,143,.06));
+  border-color: rgba(42,157,143,.3);
+}
+.cg-badge-cabang {
+  color: #009FE3;
+  background: linear-gradient(135deg, rgba(0,159,227,.12), rgba(0,159,227,.06));
+  border-color: rgba(0,159,227,.3);
+}
+.cg-badge-kab {
+  color: #e63946;
+  background: linear-gradient(135deg, rgba(230,57,70,.1), rgba(230,57,70,.05));
+  border-color: rgba(230,57,70,.3);
+}
+[data-theme="dark"] .cg-badge-leader { background: rgba(0,109,179,.18); }
+[data-theme="dark"] .cg-badge-admin  { background: rgba(42,157,143,.18); }
+[data-theme="dark"] .cg-badge-cabang { background: rgba(0,159,227,.18); }
+[data-theme="dark"] .cg-badge-kab    { background: rgba(230,57,70,.15); }
+
+/* Contact card: leader */
+.contact-grid-leader {
+  grid-template-columns: 240px;
+  justify-content: center;
+}
+.contact-card-leader {
+  position: relative;
+  border-color: rgba(0,109,179,.3) !important;
+  background: linear-gradient(145deg, var(--bg-card), rgba(0,109,179,.05)) !important;
+}
+.leader-badge-wrap { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); }
+.leader-badge {
+  display: inline-flex; padding: .22rem .75rem;
+  background: linear-gradient(90deg,#006db3,#009FE3);
+  color: white; font-size: .65rem; font-weight: 800;
+  border-radius: var(--r-full); letter-spacing: .06em;
+  text-transform: uppercase; white-space: nowrap;
+  box-shadow: 0 3px 12px rgba(0,109,179,.35);
+}
+
+/* Contact card: admin (no WA btn — 3-col grid) */
+.contact-grid-admin { grid-template-columns: repeat(3, 1fr); }
+
+/* Contact card: kab 2-col */
+.contact-grid-kab2 { grid-template-columns: repeat(2, 1fr); max-width: 520px; }
+
+/* Contact card: kab 1-col */
+.contact-grid-kab1 { grid-template-columns: 1fr; max-width: 240px; }
+
+/* Leader role style */
+.contact-role-leader {
+  color: #006db3 !important; font-weight: 700 !important;
+}
+[data-theme="dark"] .contact-role-leader { color: #7dd0f0 !important; }
+
+/* ── LOKASI TABS ── */
+.lokasi-tabs {
+  display: flex; gap: .6rem; flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: .4rem;
+}
+.ltab {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .6rem 1.15rem; border-radius: var(--r-md);
+  font-size: clamp(.72rem,1.7vw,.82rem); font-weight: 600;
+  color: var(--txt-2); border: none; background: transparent; cursor: pointer;
+  transition: all .22s ease !important;
+  -webkit-tap-highlight-color: transparent;
+  flex: 1; justify-content: center; white-space: nowrap;
+}
+.ltab:hover { color: var(--c-primary); background: var(--bg-hover); }
+.ltab.active {
+  color: white;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+  box-shadow: 0 4px 16px rgba(0,109,179,.3);
+}
+
+/* Lokasi panels — show/hide */
+.lokasi-panel { display: none; }
+.lokasi-panel.active { display: block; }
+
+/* Lokasi info header */
+.lokasi-info-header {
+  display: flex; align-items: flex-start; gap: .85rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: .5rem;
+}
+.lokasi-badge {
+  width: 46px; height: 46px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: 1.15rem;
+  box-shadow: 0 4px 14px rgba(0,109,179,.25);
+}
+.lokasi-badge-kab {
+  background: linear-gradient(135deg, #e63946, #c1121f);
+  box-shadow: 0 4px 14px rgba(230,57,70,.25);
+}
+.lokasi-office-name {
+  font-size: clamp(.9rem,2vw,1.05rem); font-weight: 700;
+  color: var(--txt); margin-bottom: .3rem; line-height: 1.3;
+}
+.lokasi-type-tag {
+  display: inline-block; font-size: .65rem; font-weight: 700;
+  padding: .2rem .65rem; border-radius: var(--r-full);
+  background: rgba(0,109,179,.12); color: var(--c-primary);
+  border: 1px solid rgba(0,109,179,.25);
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.lokasi-type-kab {
+  background: rgba(230,57,70,.1); color: #e63946;
+  border-color: rgba(230,57,70,.25);
+}
+
+/* Petunjuk Arah button */
+.btn-direction {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+  color: white; padding: .65rem 1.3rem;
+  border-radius: var(--r-full); font-size: clamp(.75rem,1.7vw,.84rem);
+  font-weight: 700; margin-top: .5rem;
+  box-shadow: 0 4px 16px rgba(0,109,179,.3);
+  transition: all .25s ease !important;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-direction:hover {
+  transform: translateY(-2px); box-shadow: 0 6px 22px rgba(0,109,179,.42);
+  background: linear-gradient(135deg, #005fa3, #007dc8);
+}
+
+
 .footer { background: linear-gradient(160deg,#00244d,#003d7a); color: white; }
 [data-theme="dark"] .footer { background: linear-gradient(160deg,#030810,#001325); border-top: 1px solid #0d1f35; }
 
@@ -869,6 +1026,10 @@ a:focus-visible, button:focus-visible {
 @media (max-width: 1023px) {
   .cards-grid     { grid-template-columns: repeat(2,1fr); }
   .contact-grid   { grid-template-columns: repeat(2,1fr); }
+  .contact-grid-admin { grid-template-columns: repeat(3,1fr); }
+  .contact-grid-kab2  { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+  .contact-grid-kab1  { max-width: 100%; grid-template-columns: repeat(2,1fr); }
+  .contact-grid-leader { grid-template-columns: 240px; }
   .news-grid      { grid-template-columns: 1fr 1fr; }
   .news-card:last-child { grid-column: 1 / -1; flex-direction: row; }
   .news-card:last-child .news-img-wrap { width: 220px; flex-shrink: 0; height: auto; }
@@ -905,6 +1066,10 @@ a:focus-visible, button:focus-visible {
 
   .cards-grid    { grid-template-columns: 1fr; }
   .contact-grid  { grid-template-columns: repeat(2,1fr); }
+  .contact-grid-admin { grid-template-columns: repeat(2,1fr); }
+  .contact-grid-kab2  { grid-template-columns: repeat(2,1fr); max-width: 100%; }
+  .contact-grid-kab1  { max-width: 100%; grid-template-columns: 1fr; }
+  .contact-grid-leader { grid-template-columns: 1fr; max-width: 100%; }
   .news-grid     { grid-template-columns: 1fr; }
   .news-card:last-child { flex-direction: column; }
   .news-card:last-child .news-img-wrap { width: 100%; height: 180px; }
@@ -912,6 +1077,8 @@ a:focus-visible, button:focus-visible {
   .gal-wide      { grid-column: span 2; }
   .gal-tall      { grid-row: span 1; }
   .footer-container { grid-template-columns: 1fr; gap: var(--sp-lg); }
+  .lokasi-tabs { padding: .3rem; gap: .4rem; }
+  .ltab { font-size: .7rem; padding: .5rem .7rem; }
 }
 
 /* sm < 576 */
@@ -919,6 +1086,7 @@ a:focus-visible, button:focus-visible {
   .brand-sub { display: none; }
   .lang-code { display: none; }
   .contact-grid { grid-template-columns: repeat(2,1fr); gap: .85rem; }
+  .contact-grid-admin { grid-template-columns: repeat(2,1fr); }
   .contact-card { padding: 1.2rem .8rem 1rem; gap: .65rem; }
   .contact-avatar-photo, .contact-photo, .contact-photo-fallback { width: 68px; height: 68px; }
   .btn-whatsapp span { display: none; }
@@ -929,11 +1097,14 @@ a:focus-visible, button:focus-visible {
   .hstat-l { font-size: .6rem; }
   .lb-prev { left: .3rem; }
   .lb-next { right: .3rem; }
+  .lokasi-tabs { flex-direction: column; }
+  .ltab { flex: none; width: 100%; }
 }
 
 /* xs < 400 */
 @media (max-width: 399px) {
   .contact-grid { grid-template-columns: 1fr; }
+  .contact-grid-admin { grid-template-columns: 1fr; }
   .contact-card { flex-direction: row; text-align: left; padding: .9rem; gap: .75rem; }
   .contact-info { flex: 1; min-width: 0; }
   .btn-whatsapp span { display: inline; }
