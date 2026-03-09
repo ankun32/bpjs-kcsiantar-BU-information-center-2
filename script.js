@@ -44,7 +44,7 @@ const i18n = {
     btn_info   : 'Lihat Informasi',
     btn_contact: 'Hubungi Kami',
     stat_layanan: 'Layanan Tersedia',
-    stat_petugas: 'Petugas Siap Bantu',
+    stat_petugas: '8 Petugas Membantu',
     stat_online : 'Info Online',
     scroll_down : 'Scroll ke bawah',
 
@@ -140,18 +140,50 @@ const i18n = {
     sec_contact_tag  : 'Tim Kami',
     sec_contact_title: 'Contact Person',
     sec_contact_desc : 'Hubungi petugas kami langsung melalui WhatsApp untuk informasi dan bantuan lebih lanjut.',
-    role_officer: 'Petugas Badan Usaha',
+    role_officer: 'Relationship Officer',
     btn_wa      : 'Chat WhatsApp',
 
     /* Seksi Lokasi */
     sec_lokasi_tag  : 'Kantor Kami',
     sec_lokasi_title: 'Lokasi Kantor',
     sec_lokasi_desc : 'Kunjungi kantor kami pada jam operasional untuk pelayanan langsung.',
-    lokasi_name   : 'BPJS Kesehatan KC Pematangsiantar',
+    lokasi_name        : 'BPJS Kesehatan KC Pematangsiantar',
+    lokasi_sml_name    : 'BPJS Kesehatan Kab. Simalungun',
+    lokasi_toba_name   : 'BPJS Kesehatan Kab. Toba',
+    lokasi_samosir_name: 'BPJS Kesehatan Kab. Samosir',
+    lokasi_alamat      : 'Alamat',
+    lokasi_sml_alamat  : 'Kab. Simalungun, Sumatera Utara',
+    lokasi_toba_alamat : 'Kab. Toba, Sumatera Utara',
+    lokasi_samosir_alamat: 'Kab. Samosir, Sumatera Utara',
     lokasi_jam    : 'Jam Operasional',
     lokasi_jam_val: 'Senin – Jumat: 09.00 – 15.00 WIB',
     lokasi_telp   : 'Hotline',
     btn_direction : 'Petunjuk Arah',
+    ltab_cabang   : 'KC Pematangsiantar',
+    ltab_simalungun: 'Kab. Simalungun',
+    ltab_toba     : 'Kab. Toba',
+    ltab_samosir  : 'Kab. Samosir',
+    ltag_cabang   : 'Kantor Cabang',
+    ltag_kab      : 'Kantor Kabupaten',
+
+    /* Contact Groups */
+    cg_leader    : 'Pimpinan',
+    cg_admin     : 'Admin Kepesertaan',
+    cg_cabang    : 'Kantor Cabang Pematangsiantar',
+    cg_simalungun: 'Kantor Kabupaten Simalungun',
+    cg_toba      : 'Kantor Kabupaten Toba',
+    cg_samosir   : 'Kantor Kabupaten Samosir',
+    badge_leader : 'Kepala Bagian',
+    role_leader  : 'Kepala Bagian Kepesertaan',
+    role_admin   : 'Admin Kepesertaan',
+    leader_name  : 'Nama Kepala Bagian',
+    admin1_name  : 'Nama Admin 1',
+    admin2_name  : 'Nama Admin 2',
+    admin3_name  : 'Nama Admin 3',
+    ro_sml1_name : 'Nama RO Simalungun 1',
+    ro_sml2_name : 'Nama RO Simalungun 2',
+    ro_toba_name : 'Nama RO Toba',
+    ro_samosir_name: 'Nama RO Samosir',
 
     /* Footer */
     footer_tagline: 'Melayani dengan sepenuh hati untuk Indonesia yang lebih sehat.',
@@ -184,7 +216,7 @@ const i18n = {
     btn_info   : 'View Information',
     btn_contact: 'Contact Us',
     stat_layanan: 'Services Available',
-    stat_petugas: 'Officers Ready',
+    stat_petugas: '8 Officers Ready',
     stat_online : 'Online Info',
     scroll_down : 'Scroll down',
 
@@ -280,18 +312,48 @@ const i18n = {
     sec_contact_tag  : 'Our Team',
     sec_contact_title: 'Contact Person',
     sec_contact_desc : 'Contact our officers directly via WhatsApp for information and further assistance.',
-    role_officer: 'Business Entity Officer',
+    role_officer: 'Relationship Officer',
+    role_leader : 'Head of Membership Division',
+    role_admin  : 'Membership Admin',
     btn_wa      : 'Chat on WhatsApp',
+    cg_leader    : 'Leadership',
+    cg_admin     : 'Membership Admin',
+    cg_cabang    : 'Pematangsiantar Branch Office',
+    cg_simalungun: 'Simalungun District Office',
+    cg_toba      : 'Toba District Office',
+    cg_samosir   : 'Samosir District Office',
+    badge_leader : 'Department Head',
+    leader_name  : 'Head of Membership Name',
+    admin1_name  : 'Admin Name 1',
+    admin2_name  : 'Admin Name 2',
+    admin3_name  : 'Admin Name 3',
+    ro_sml1_name : 'RO Simalungun Name 1',
+    ro_sml2_name : 'RO Simalungun Name 2',
+    ro_toba_name : 'RO Toba Name',
+    ro_samosir_name: 'RO Samosir Name',
 
     /* Location Section */
     sec_lokasi_tag  : 'Our Office',
-    sec_lokasi_title: 'Office Location',
-    sec_lokasi_desc : 'Visit our office during operating hours for direct service.',
-    lokasi_name   : 'BPJS Kesehatan Branch Pematangsiantar',
+    sec_lokasi_title: 'Office Locations',
+    sec_lokasi_desc : 'Visit our offices during operating hours for direct service.',
+    lokasi_name        : 'BPJS Kesehatan Branch Pematangsiantar',
+    lokasi_sml_name    : 'BPJS Kesehatan Simalungun District',
+    lokasi_toba_name   : 'BPJS Kesehatan Toba District',
+    lokasi_samosir_name: 'BPJS Kesehatan Samosir District',
+    lokasi_alamat      : 'Address',
+    lokasi_sml_alamat  : 'Simalungun Regency, North Sumatra',
+    lokasi_toba_alamat : 'Toba Regency, North Sumatra',
+    lokasi_samosir_alamat: 'Samosir Regency, North Sumatra',
     lokasi_jam    : 'Operating Hours',
     lokasi_jam_val: 'Monday – Friday: 09:00 – 15:00 WIB',
     lokasi_telp   : 'Hotline',
     btn_direction : 'Get Directions',
+    ltab_cabang   : 'Pematangsiantar Branch',
+    ltab_simalungun: 'Simalungun District',
+    ltab_toba     : 'Toba District',
+    ltab_samosir  : 'Samosir District',
+    ltag_cabang   : 'Branch Office',
+    ltag_kab      : 'District Office',
 
     /* Footer */
     footer_tagline: 'Serving wholeheartedly for a healthier Indonesia.',
@@ -326,6 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryLightbox();
   initBackToTop();
   initTicker();
+  initLokasiTabs();
 });
 
 /* ─────────────────────────────────────────────────
@@ -695,4 +758,29 @@ function refreshTicker() {
   clone.removeAttribute('id');
   clone.classList.add('ticker-clone');
   track.appendChild(clone);
+}
+
+/* ─────────────────────────────────────────────────
+   LOKASI TABS  —  4 kantor
+───────────────────────────────────────────────── */
+function initLokasiTabs() {
+  const tabs   = document.querySelectorAll('.ltab');
+  const panels = document.querySelectorAll('.lokasi-panel');
+  if (!tabs.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.kantor;
+
+      /* Update tab aktif */
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      /* Tampilkan panel yang sesuai */
+      panels.forEach(panel => {
+        const isTarget = panel.id === `panel-${target}`;
+        panel.classList.toggle('active', isTarget);
+      });
+    });
+  });
 }
