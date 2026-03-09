@@ -389,6 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initTicker();
   initLokasiTabs();
+  initPhotoProtection();
 });
 
 /* ─────────────────────────────────────────────────
@@ -761,8 +762,35 @@ function refreshTicker() {
 }
 
 /* ─────────────────────────────────────────────────
-   LOKASI TABS  —  4 kantor
+   PHOTO PROTECTION — contact section
+   Mencegah: klik kanan, drag, "open in new tab"
 ───────────────────────────────────────────────── */
+function initPhotoProtection() {
+  const section = document.getElementById('contact');
+  if (!section) return;
+
+  const photos = section.querySelectorAll('.contact-photo, .contact-avatar-photo');
+
+  photos.forEach(el => {
+    /* Blokir context menu (klik kanan) */
+    el.addEventListener('contextmenu', e => e.preventDefault());
+
+    /* Blokir drag & drop */
+    el.addEventListener('dragstart', e => e.preventDefault());
+
+    /* Blokir touch hold (mobile) */
+    el.addEventListener('touchstart', e => {
+      if (e.touches.length > 1) e.preventDefault();
+    }, { passive: false });
+  });
+
+  /* Blokir context menu di seluruh section contact */
+  section.addEventListener('contextmenu', e => {
+    if (e.target.tagName === 'IMG' || e.target.closest('.contact-avatar-photo')) {
+      e.preventDefault();
+    }
+  });
+}
 function initLokasiTabs() {
   const tabs   = document.querySelectorAll('.ltab');
   const panels = document.querySelectorAll('.lokasi-panel');
