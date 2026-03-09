@@ -752,13 +752,31 @@ section[id] { scroll-margin-top: 64px; }
 }
 
 /* Larger, richer avatars */
-.contact-avatar-photo { position: relative; width: 96px; height: 96px; flex-shrink: 0; }
+.contact-avatar-photo {
+  position: relative; width: 96px; height: 96px; flex-shrink: 0;
+}
+/* Overlay transparan — mencegah klik kanan & "Open image in new tab" */
+.contact-avatar-photo::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  background: transparent;
+  cursor: default;
+}
 .contact-photo {
   width: 96px; height: 96px; border-radius: 50%;
   object-fit: cover; object-position: center top;
   display: block; position: relative; z-index: 1;
   border: 3px solid var(--bg);
   box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  /* Proteksi foto */
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-select: none;
 }
 .contact-photo-fallback {
   width: 96px; height: 96px;
@@ -767,6 +785,9 @@ section[id] { scroll-margin-top: 64px; }
   font-size: 2.2rem; color: white; position: relative; z-index: 1;
   border: 3px solid var(--bg);
   box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 /* Solid-color glow ring instead of dashed — more premium */
 .contact-avatar-photo .avatar-ring {
