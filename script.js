@@ -493,7 +493,16 @@ function initNavbar() {
   hamburger.addEventListener('click', e => { e.stopPropagation(); toggleMenu(); });
 
   /* Tutup saat klik link */
-  navLinks.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', closeMenu));
+  navLinks.querySelectorAll('.nav-link:not(.nav-link-dropdown)').forEach(l => l.addEventListener('click', closeMenu));
+
+  /* Mobile dropdown toggle */
+  navLinks.querySelectorAll('.nav-link-dropdown').forEach(link => {
+    link.addEventListener('click', e => {
+      if (window.innerWidth >= 768) return;
+      e.preventDefault(); e.stopPropagation();
+      link.closest('.nav-dropdown').classList.toggle('open');
+    });
+  });
 
   /* Tutup saat klik di luar */
   document.addEventListener('click', e => {
