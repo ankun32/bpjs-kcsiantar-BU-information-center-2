@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fasilitas Kesehatan – BPJS Kesehatan KC Pematangsiantar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/png" href="files/photos/siantar.png"/>
+  <style>
+  /* ══ FASKES PAGE SPECIFIC STYLES ══ */
+
+  /* ── Page Hero ── */
+  .faskes-hero {
+    background: linear-gradient(135deg, #003d7a 0%, #006db3 45%, #009FE3 100%);
+    padding: calc(var(--navbar-h) + 3rem) 0 3rem;
+    position: relative; overflow: hidden;
+  }
+  .faskes-hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 85% 30%, rgba(0,159,227,.25) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(0,61,122,.4) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .faskes-hero-dots {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+  }
+  .faskes-hero-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 var(--sp-md);
+    position: relative; z-index: 1;
+  }
+  .faskes-hero-eyebrow {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
+    padding: .32rem .9rem; border-radius: 999px;
+    font-size: .74rem; font-weight: 700; color: rgba(255,255,255,.9);
+    letter-spacing: .06em; text-transform: uppercase; margin-bottom: 1rem;
+  }
+  .faskes-hero h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight: 800; color: white; line-height: 1.2;
+    margin-bottom: .75rem;
+  }
+  .faskes-hero h1 span {
+    background: linear-gradient(90deg, #7dd0f0, #a8e8ff);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .faskes-hero p {
+    color: rgba(255,255,255,.75); font-size: clamp(.84rem, 1.8vw, 1rem);
+    max-width: 560px; line-height: 1.7;
+  }
+  .faskes-hero-stats {
+    display: flex; gap: 1.5rem; margin-top: 1.75rem; flex-wrap: wrap;
+  }
+  .fh-stat {
+    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+    border-radius: 12px; padding: .7rem 1.2rem; text-align: center;
+    backdrop-filter: blur(8px);
+  }
+  .fh-stat-n { display: block; font-family: 'Poppins',sans-serif; font-size: 1.5rem; font-weight: 800; color: white; line-height: 1; }
+  .fh-stat-l { display: block; font-size: .67rem; color: rgba(255,255,255,.65); font-weight: 600; margin-top: .2rem; letter-spacing: .03em; }
+
+  /* ── Main Content ── */
+  .faskes-main {
+    max-width: 1200px; margin: 0 auto; padding: 2rem var(--sp-md) 4rem;
+  }
+
+  /* ── Dropdown Filter Bar ── */
+  .faskes-control-bar {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r-lg); padding: 1.25rem 1.5rem;
+    box-shadow: var(--sh-md);
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    align-items: flex-end;
+    margin-bottom: 2rem;
+    position: sticky; top: calc(var(--navbar-h) + 8px); z-index: 100;
+  }
+  .ctrl-group { display: flex; flex-direction: column; gap: .4rem; flex: 1; min-width: 160px; }
+  .ctrl-group label {
+    font-size: .7rem; font-weight: 700; color: var(--txt-3);
+    letter-spacing: .06em; text-transform: uppercase;
+  }
+  .ctrl-select, .ctrl-input {
+    height: 42px; padding: 0 .9rem;
+    background: var(--bg-alt); border: 1px solid var(--border);
+    border-radius: var(--r-md); color: var(--txt);
+    font-family: inherit; font-size: .85rem; font-weight: 500;
+    outline: none; width: 100%;
+    transition: border-color .2s ease, box-shadow .2s ease;
+    -webkit-appearance: none; appearance: none;
+  }
+  .ctrl-select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23009FE3' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right .85rem center; padding-right: 2.2rem; cursor: pointer; }
+  .ctrl-select:focus, .ctrl-input:focus { border-color: var(--c-accent); box-shadow: 0 0 0 3px rgba(0,159,227,.12); }
+  .ctrl-input { position: relative; }
+  .ctrl-search-wrap { position: relative; flex: 2; min-width: 220px; }
+  .ctrl-search-wrap label { font-size: .7rem; font-weight: 700; color: var(--txt-3); letter-spacing: .06em; text-transform: uppercase; margin-bottom: .4rem; display: block; }
+  .ctrl-search-wrap .ctrl-input { padding-left: 2.4rem; }
+  .ctrl-search-icon { position: absolute; left: .85rem; bottom: 12px; color: var(--txt-3); font-size: .85rem; pointer-events: none; }
+  .ctrl-reset-btn {
+    height: 42px; padding: 0 1.2rem;
+    background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+    color: white; border: none; border-radius: var(--r-md);
+    font-size: .82rem; font-weight: 700; cursor: pointer;
+    display: flex; align-items: center; gap: .45rem;
+    box-shadow: 0 4px 14px rgba(0,109,179,.25);
+    transition: all .22s ease; white-space: nowrap; flex-shrink: 0;
+    align-self: flex-end;
+  }
+  .ctrl-reset-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,109,179,.4); }
+
+  /* View toggle */
+  .view-toggle { display: flex; gap: .35rem; align-self: flex-end; flex-shrink: 0; }
+  .vtog-btn {
+    width: 42px; height: 42px; border: 1px solid var(--border);
+    border-radius: var(--r-md); background: var(--bg-alt);
+    color: var(--txt-3); cursor: pointer; display: flex;
+    align-items: center; justify-content: center; font-size: .9rem;
+    transition: all .2s ease;
+  }
+  .vtog-btn.active { background: var(--c-primary); color: white; border-color: var(--c-primary); box-shadow: 0 3px 10px rgba(0,109,179,.3); }
+
+  /* ── Results info ── */
+  .faskes-result-info {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 1.25rem; flex-wrap: wrap; gap: .5rem;
+  }
+  .result-count {
+    font-size: .82rem; color: var(--txt-2); font-weight: 600;
+  }
+  .result-count strong { color: var(--c-primary); }
+
+  /* ── Section Tabs (Mobile JKN / Wilayah) ── */
+  .faskes-nav-tabs {
+    display: flex; gap: .5rem; overflow-x: auto; padding-bottom: .25rem;
+    margin-bottom: 2rem;
+    scrollbar-width: none;
+  }
+  .faskes-nav-tabs::-webkit-scrollbar { display: none; }
+  .fn-tab {
+    display: inline-flex; align-items: center; gap: .45rem;
+    padding: .6rem 1.3rem; border-radius: var(--r-full);
+    font-size: clamp(.75rem,1.7vw,.84rem); font-weight: 700;
+    color: var(--txt-2); border: 1.5px solid var(--border);
+    background: var(--bg-card); cursor: pointer; white-space: nowrap;
+    transition: all .22s ease; flex-shrink: 0;
+  }
+  .fn-tab:hover { color: var(--c-primary); border-color: var(--c-accent); }
+  .fn-tab.active {
+    background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+    color: white; border-color: transparent;
+    box-shadow: 0 4px 16px rgba(0,109,179,.3);
+  }
+
+  /* ── Panel wrapper ── */
+  .faskes-panel { display: none; animation: fpanel-in .3s ease; }
+  .faskes-panel.active { display: block; }
+  @keyframes fpanel-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+
+  /* ══ CARD VIEW ══ */
+  .faskes-cards-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.1rem;
+  }
+  .fcard {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r-lg); padding: 1.1rem 1.2rem 1rem;
+    display: flex; flex-direction: column; gap: .65rem;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    position: relative; overflow: hidden;
+  }
+  .fcard::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    opacity: 0; transition: opacity .3s ease;
+  }
+  .fcard:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); border-color: var(--border-hv); }
+  .fcard:hover::before { opacity: 1; }
+
+  /* Type color accent lines */
+  .fcard[data-type="RS"]::before      { background: linear-gradient(90deg,#e63946,#ff6b7a); }
+  .fcard[data-type="RS"]:hover         { border-color: #e63946; }
+  .fcard[data-type="Klinik"]::before  { background: linear-gradient(90deg,#009FE3,#7dd0f0); }
+  .fcard[data-type="Klinik"]:hover     { border-color: #009FE3; }
+  .fcard[data-type="Puskesmas"]::before { background: linear-gradient(90deg,#2a9d8f,#38c9b9); }
+  .fcard[data-type="Puskesmas"]:hover  { border-color: #2a9d8f; }
+  .fcard[data-type="Dokter"]::before   { background: linear-gradient(90deg,#f77f00,#ffc947); }
+  .fcard[data-type="Dokter"]:hover     { border-color: #f77f00; }
+  .fcard[data-type="Apotek"]::before   { background: linear-gradient(90deg,#8338ec,#c77dff); }
+  .fcard[data-type="Apotek"]:hover     { border-color: #8338ec; }
+  .fcard[data-type="Optik"]::before    { background: linear-gradient(90deg,#06d6a0,#52f0c8); }
+  .fcard[data-type="Optik"]:hover      { border-color: #06d6a0; }
+
+  .fcard-header { display: flex; align-items: flex-start; gap: .75rem; }
+  .fcard-icon {
+    width: 40px; height: 40px; border-radius: var(--r-sm); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .95rem; color: white;
+  }
+  .fcard-icon.type-RS       { background: linear-gradient(135deg,#e63946,#c1121f); }
+  .fcard-icon.type-Klinik   { background: linear-gradient(135deg,#006db3,#009FE3); }
+  .fcard-icon.type-Puskesmas{ background: linear-gradient(135deg,#2a9d8f,#1d7d72); }
+  .fcard-icon.type-Dokter   { background: linear-gradient(135deg,#f77f00,#e06200); }
+  .fcard-icon.type-Apotek   { background: linear-gradient(135deg,#7209b7,#560bad); }
+  .fcard-icon.type-Optik    { background: linear-gradient(135deg,#06d6a0,#05b386); }
+
+  .fcard-title-wrap { flex: 1; min-width: 0; }
+  .fcard-name { font-size: clamp(.82rem,1.7vw,.9rem); font-weight: 700; color: var(--txt); line-height: 1.35; }
+  .fcard-code { font-size: .67rem; color: var(--txt-3); font-weight: 600; font-family: monospace; margin-top: .1rem; letter-spacing: .04em; }
+  .fcard-badge {
+    display: inline-flex; align-items: center; gap: .3rem;
+    padding: .2rem .65rem; border-radius: var(--r-full);
+    font-size: .63rem; font-weight: 800; letter-spacing: .05em;
+    text-transform: uppercase; flex-shrink: 0;
+  }
+  .badge-RS       { background:rgba(230,57,70,.12);  color:#e63946; border:1px solid rgba(230,57,70,.2); }
+  .badge-Klinik   { background:rgba(0,159,227,.12);  color:#006db3; border:1px solid rgba(0,159,227,.2); }
+  .badge-Puskesmas{ background:rgba(42,157,143,.12); color:#2a9d8f; border:1px solid rgba(42,157,143,.2); }
+  .badge-Dokter   { background:rgba(247,127,0,.12);  color:#e06200; border:1px solid rgba(247,127,0,.2); }
+  .badge-Apotek   { background:rgba(114,9,183,.12);  color:#7209b7; border:1px solid rgba(114,9,183,.2); }
+  .badge-Optik    { background:rgba(6,214,160,.12);  color:#06a87e; border:1px solid rgba(6,214,160,.2); }
+  [data-theme="dark"] .badge-RS       { background:rgba(230,57,70,.18);  color:#ff7a85; }
+  [data-theme="dark"] .badge-Klinik   { background:rgba(0,159,227,.18);  color:#7dd0f0; }
+  [data-theme="dark"] .badge-Puskesmas{ background:rgba(42,157,143,.18); color:#4fd8cb; }
+  [data-theme="dark"] .badge-Dokter   { background:rgba(247,127,0,.18);  color:#ffb347; }
+  [data-theme="dark"] .badge-Apotek   { background:rgba(114,9,183,.18);  color:#c77dff; }
+  [data-theme="dark"] .badge-Optik    { background:rgba(6,214,160,.18);  color:#52f0c8; }
+
+  .fcard-meta { display: flex; flex-direction: column; gap: .35rem; }
+  .fcard-meta-row { display: flex; align-items: flex-start; gap: .5rem; font-size: clamp(.73rem,1.5vw,.78rem); color: var(--txt-2); }
+  .fcard-meta-row i { color: var(--txt-3); font-size: .7rem; margin-top: .15rem; flex-shrink: 0; width: 14px; }
+
+  /* ══ TABLE VIEW ══ */
+  .faskes-table-wrap {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-md);
+  }
+  .faskes-table {
+    width: 100%; border-collapse: collapse; font-size: clamp(.72rem,1.5vw,.82rem);
+  }
+  .faskes-table thead {
+    background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+    color: white; position: sticky; top: 0; z-index: 2;
+  }
+  .faskes-table th {
+    padding: .85rem 1rem; text-align: left; font-weight: 700;
+    font-size: .72rem; letter-spacing: .06em; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .faskes-table th:first-child { padding-left: 1.25rem; }
+  .faskes-table tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background .15s ease;
+  }
+  .faskes-table tbody tr:last-child { border-bottom: none; }
+  .faskes-table tbody tr:hover { background: var(--bg-alt); }
+  .faskes-table td { padding: .75rem 1rem; color: var(--txt); vertical-align: middle; }
+  .faskes-table td:first-child { padding-left: 1.25rem; color: var(--txt-3); font-size: .7rem; font-weight: 600; }
+  .faskes-table .td-name { font-weight: 700; color: var(--txt); }
+  .faskes-table .td-code { font-family: monospace; font-size: .7rem; color: var(--txt-3); background: var(--bg-alt); padding: .15rem .45rem; border-radius: 4px; white-space: nowrap; }
+  .faskes-table .td-addr { color: var(--txt-2); max-width: 240px; line-height: 1.45; }
+  .no-result {
+    text-align: center; padding: 3rem 1rem;
+    color: var(--txt-3); font-size: .9rem;
+  }
+  .no-result i { font-size: 2.5rem; display: block; margin-bottom: .75rem; opacity: .4; }
+
+  /* ══ MOBILE JKN GUIDE ══ */
+  .mjkn-intro {
+    background: linear-gradient(135deg, rgba(0,109,179,.07), rgba(0,159,227,.04));
+    border: 1px solid rgba(0,159,227,.2);
+    border-radius: var(--r-lg); padding: 1.5rem;
+    margin-bottom: 2rem; display: flex; gap: 1rem; align-items: flex-start;
+  }
+  .mjkn-intro-icon {
+    width: 52px; height: 52px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+    border-radius: var(--r-md); display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.35rem;
+    box-shadow: 0 6px 18px rgba(0,109,179,.25);
+  }
+  .mjkn-intro-text h3 { font-size: 1rem; font-weight: 800; color: var(--txt); margin-bottom: .35rem; }
+  .mjkn-intro-text p { font-size: .83rem; color: var(--txt-2); line-height: 1.65; }
+  .mjkn-intro-text a { color: var(--c-primary); font-weight: 700; }
+
+  .mjkn-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.1rem; }
+  .mjkn-card {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r-lg); overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .mjkn-card:hover { transform: translateY(-4px); box-shadow: var(--sh-lg); }
+  .mjkn-card-head {
+    background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+    padding: 1rem 1.2rem; display: flex; align-items: center; gap: .75rem;
+  }
+  .mjkn-card-head i { color: rgba(255,255,255,.85); font-size: 1.15rem; }
+  .mjkn-card-head h3 { color: white; font-size: .88rem; font-weight: 700; }
+  .mjkn-card-body { padding: 1.1rem 1.2rem; }
+  .mjkn-steps { display: flex; flex-direction: column; gap: .6rem; counter-reset: step-c; }
+  .mjkn-step {
+    display: flex; gap: .7rem; align-items: flex-start;
+    font-size: .8rem; color: var(--txt-2); line-height: 1.55;
+    counter-increment: step-c;
+  }
+  .mjkn-step-num {
+    width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--c-primary), var(--c-accent));
+    color: white; font-size: .65rem; font-weight: 800;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: .1rem;
+  }
+  .mjkn-step strong { color: var(--txt); }
+
+  /* ── Pagination / Empty ── */
+  .faskes-empty {
+    text-align: center; padding: 4rem 1rem;
+    color: var(--txt-3);
+  }
+  .faskes-empty i { font-size: 3.5rem; opacity: .3; margin-bottom: 1rem; display: block; }
+  .faskes-empty h3 { font-size: 1rem; color: var(--txt-2); margin-bottom: .4rem; }
+  .faskes-empty p { font-size: .82rem; }
+
+  /* ── Responsive ── */
+  @media (max-width: 767px) {
+    .faskes-control-bar { padding: 1rem; gap: .75rem; position: relative; top: auto; }
+    .ctrl-group, .ctrl-search-wrap { min-width: 100%; }
+    .faskes-hero-stats { gap: .85rem; }
+    .fh-stat { padding: .5rem .9rem; }
+    .faskes-table-wrap { overflow-x: auto; }
+    .faskes-table { min-width: 620px; }
+    .mjkn-grid { grid-template-columns: 1fr; }
+    .mjkn-intro { flex-direction: column; }
+  }
+  @media (max-width: 575px) {
+    .faskes-cards-grid { grid-template-columns: 1fr; }
+    .view-toggle { display: none; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     NAVBAR (sama persis dengan index)
+════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">
+      <img src="files/photos/logo-bpjs.png" alt="Logo BPJS Kesehatan" class="brand-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="brand-logo-fallback" style="display:none"><i class="fa-solid fa-shield-heart"></i></div>
+      <div class="brand-text">
+        <span class="brand-main">BPJS Kesehatan</span>
+        <span class="brand-sub">KC Pematangsiantar</span>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html"           class="nav-link">Beranda</a></li>
+      <li><a href="index.html#layanan"   class="nav-link">Informasi Layanan</a></li>
+      <li><a href="index.html#panduan"   class="nav-link">Panduan eDabu</a></li>
+      <li><a href="index.html#news"      class="nav-link">What's New</a></li>
+      <li><a href="index.html#galeri"    class="nav-link">Galeri</a></li>
+
+      <!-- ── DROPDOWN FASKES ── -->
+      <li class="nav-dropdown">
+        <a href="faskes.html" class="nav-link nav-link-dropdown active">
+          Faskes <i class="fa-solid fa-chevron-down nav-dd-icon"></i>
+        </a>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-header">Direktori Faskes BPJS</div>
+          <a href="faskes.html?tab=mobilejkn" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#006db3,#009FE3)"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div>
+              <div class="nav-dd-item-title">Panduan Mobile JKN</div>
+              <div class="nav-dd-item-sub">Cara penggunaan aplikasi</div>
+            </div>
+          </a>
+          <a href="faskes.html?tab=siantar" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#e63946,#c1121f)"><i class="fa-solid fa-city"></i></div>
+            <div>
+              <div class="nav-dd-item-title">Kota Pematangsiantar</div>
+              <div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div>
+            </div>
+          </a>
+          <a href="faskes.html?tab=simalungun" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#2a9d8f,#1d7d72)"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div>
+              <div class="nav-dd-item-title">Kab. Simalungun</div>
+              <div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div>
+            </div>
+          </a>
+          <a href="faskes.html?tab=toba" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#f77f00,#e06200)"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div>
+              <div class="nav-dd-item-title">Kab. Toba</div>
+              <div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div>
+            </div>
+          </a>
+          <a href="faskes.html?tab=samosir" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#7209b7,#560bad)"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div>
+              <div class="nav-dd-item-title">Kab. Samosir</div>
+              <div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div>
+            </div>
+          </a>
+        </div>
+      </li>
+
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      <li><a href="index.html#lokasi"  class="nav-link">Lokasi</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="id"><span class="lang-flag">🇮🇩</span><span class="lang-code">ID</span></button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="en"><span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span></button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="tog-track"><span class="tog-thumb"></span></span>
+        <i class="fa-solid fa-sun  tog-sun"></i>
+        <i class="fa-solid fa-moon tog-moon"></i>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     PAGE HERO
+════════════════════════════════════ -->
+<div class="faskes-hero">
+  <div class="faskes-hero-dots"></div>
+  <div class="faskes-hero-inner">
+    <div class="faskes-hero-eyebrow">
+      <i class="fa-solid fa-hospital"></i> Direktori Fasilitas Kesehatan
+    </div>
+    <h1>Fasilitas Kesehatan <span>BPJS</span><br>Wilayah KC Pematangsiantar</h1>
+    <p>Temukan rumah sakit, klinik, puskesmas, apotek, dan fasilitas kesehatan lainnya yang bekerja sama dengan BPJS Kesehatan di wilayah kerja KC Pematangsiantar.</p>
+    <div class="faskes-hero-stats">
+      <div class="fh-stat"><span class="fh-stat-n" id="statTotal">200+</span><span class="fh-stat-l">Total Faskes</span></div>
+      <div class="fh-stat"><span class="fh-stat-n">4</span><span class="fh-stat-l">Wilayah</span></div>
+      <div class="fh-stat"><span class="fh-stat-n">6</span><span class="fh-stat-l">Jenis Faskes</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════ -->
+<main class="faskes-main">
+
+  <!-- Section Tabs -->
+  <div class="faskes-nav-tabs" id="faskesNavTabs">
+    <button class="fn-tab active" data-panel="siantar">
+      <i class="fa-solid fa-city"></i> Kota Pematangsiantar
+    </button>
+    <button class="fn-tab" data-panel="simalungun">
+      <i class="fa-solid fa-map-location-dot"></i> Kab. Simalungun
+    </button>
+    <button class="fn-tab" data-panel="toba">
+      <i class="fa-solid fa-map-location-dot"></i> Kab. Toba
+    </button>
+    <button class="fn-tab" data-panel="samosir">
+      <i class="fa-solid fa-map-location-dot"></i> Kab. Samosir
+    </button>
+    <button class="fn-tab" data-panel="mobilejkn">
+      <i class="fa-solid fa-mobile-screen"></i> Panduan Mobile JKN
+    </button>
+  </div>
+
+  <!-- ══ CONTROL BAR (only for faskes panels) ══ -->
+  <div class="faskes-control-bar" id="controlBar">
+    <div class="ctrl-search-wrap">
+      <label for="searchInput"><i class="fa-solid fa-magnifying-glass"></i> Cari Faskes</label>
+      <i class="fa-solid fa-magnifying-glass ctrl-search-icon"></i>
+      <input type="text" id="searchInput" class="ctrl-input" placeholder="Nama faskes, alamat, kecamatan..."/>
+    </div>
+    <div class="ctrl-group">
+      <label for="typeFilter">Jenis Faskes</label>
+      <select id="typeFilter" class="ctrl-select">
+        <option value="">Semua Jenis</option>
+        <option value="RS">Rumah Sakit</option>
+        <option value="Klinik">Klinik</option>
+        <option value="Puskesmas">Puskesmas</option>
+        <option value="Dokter">Dokter Umum</option>
+        <option value="Apotek">Apotek</option>
+        <option value="Optik">Optik</option>
+      </select>
+    </div>
+    <div class="ctrl-group">
+      <label for="kecFilter">Kecamatan</label>
+      <select id="kecFilter" class="ctrl-select">
+        <option value="">Semua Kecamatan</option>
+      </select>
+    </div>
+    <div class="view-toggle">
+      <button class="vtog-btn active" id="btnCardView" title="Card View"><i class="fa-solid fa-grip"></i></button>
+      <button class="vtog-btn" id="btnTableView" title="Table View"><i class="fa-solid fa-table-list"></i></button>
+    </div>
+    <button class="ctrl-reset-btn" id="resetBtn">
+      <i class="fa-solid fa-arrows-rotate"></i> Reset
+    </button>
+  </div>
+
+  <!-- Result count -->
+  <div class="faskes-result-info" id="resultInfo" style="display:none">
+    <div class="result-count">Menampilkan <strong id="countShown">0</strong> dari <strong id="countTotal">0</strong> fasilitas kesehatan</div>
+  </div>
+
+  <!-- ══════════ PANEL: PEMATANGSIANTAR ══════════ -->
+  <div class="faskes-panel active" id="panel-siantar">
+    <div class="faskes-cards-grid" id="grid-siantar"></div>
+    <div class="faskes-table-wrap" id="table-siantar" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-siantar"></tbody></table></div>
+    <div class="faskes-empty" id="empty-siantar" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
+  </div>
+
+  <!-- ══════════ PANEL: SIMALUNGUN ══════════ -->
+  <div class="faskes-panel" id="panel-simalungun">
+    <div class="faskes-cards-grid" id="grid-simalungun"></div>
+    <div class="faskes-table-wrap" id="table-simalungun" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-simalungun"></tbody></table></div>
+    <div class="faskes-empty" id="empty-simalungun" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
+  </div>
+
+  <!-- ══════════ PANEL: TOBA ══════════ -->
+  <div class="faskes-panel" id="panel-toba">
+    <div class="faskes-cards-grid" id="grid-toba"></div>
+    <div class="faskes-table-wrap" id="table-toba" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-toba"></tbody></table></div>
+    <div class="faskes-empty" id="empty-toba" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
+  </div>
+
+  <!-- ══════════ PANEL: SAMOSIR ══════════ -->
+  <div class="faskes-panel" id="panel-samosir">
+    <div class="faskes-cards-grid" id="grid-samosir"></div>
+    <div class="faskes-table-wrap" id="table-samosir" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-samosir"></tbody></table></div>
+    <div class="faskes-empty" id="empty-samosir" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
+  </div>
+
+  <!-- ══════════ PANEL: MOBILE JKN ══════════ -->
+  <div class="faskes-panel" id="panel-mobilejkn">
+    <div class="mjkn-intro">
+      <div class="mjkn-intro-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+      <div class="mjkn-intro-text">
+        <h3>Aplikasi Mobile JKN — BPJS Kesehatan</h3>
+        <p>Mobile JKN adalah aplikasi resmi BPJS Kesehatan untuk peserta JKN. Tersedia di <strong>Google Play Store</strong> dan <strong>App Store</strong>. Panduan berikut disusun ulang berdasarkan panduan resmi BPJS Kesehatan. Untuk bantuan lebih lanjut kunjungi <a href="https://sipp.bpjs-kesehatan.go.id/" target="_blank">sipp.bpjs-kesehatan.go.id</a>.</p>
+      </div>
+    </div>
+    <div class="mjkn-grid">
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-right-to-bracket"></i><h3>Cara Login ke Mobile JKN</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Buka aplikasi Mobile JKN, pilih <strong>Masuk/Daftar</strong> di pojok kiri atas</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Pilih <strong>Masuk</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Pilih jenis identitas, masukkan <strong>NIK/Nomor Kartu</strong>, password, dan captcha, lalu ketuk <strong>MASUK</strong></div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-fingerprint"></i><h3>Login dengan Biometrik</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Login terlebih dulu, masuk ke <strong>Menu Profil</strong>, aktifkan <strong>Login dengan Biometrik</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Setujui syarat dan ketentuan, masukkan password untuk mendaftar biometrik</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Status berubah <strong>ON</strong> — selanjutnya login dapat menggunakan sidik jari atau face recognition</div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-key"></i><h3>Lupa Kata Sandi</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Pada halaman login, pilih fitur <strong>Lupa Kata Sandi</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Masukkan <strong>NIK</strong> dan captcha, lalu ketuk Lanjut</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Pilih metode pemulihan: <strong>SMS, E-Mail</strong>, atau <strong>Pertanyaan Data Pribadi</strong></div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-user-plus"></i><h3>Daftar Akun Baru</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Buka aplikasi, ketuk <strong>Daftar</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Isi formulir: <strong>NIK, Nama, Tanggal Lahir, Captcha</strong>, lalu ketuk Verifikasi Data</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Masukkan nomor HP, kirim kode OTP, masukkan OTP, lalu ketuk <strong>Registrasi</strong></div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-lock"></i><h3>Mengubah PIN</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Dari menu Home, ketuk <strong>Profil</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Pilih <strong>Ubah PIN</strong>, masukkan PIN saat ini</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Masukkan PIN baru, verifikasi, lalu ketuk <strong>Setuju</strong></div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-rotate"></i><h3>Mengubah Kata Sandi</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Masuk ke <strong>Profil</strong>, pilih <strong>Ubah Kata Sandi</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Isi form: password lama, password baru, konfirmasi password baru, dan captcha</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Ketuk <strong>Simpan</strong> — aplikasi akan otomatis login ulang</div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-floppy-disk"></i><h3>Simpan Data Username</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Setelah login, buka <strong>Menu Profil</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Aktifkan fitur <strong>Simpan Data Username</strong> dengan menggeser tombol ke ON</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Halaman login berikutnya akan otomatis terisi nomor kartu peserta terakhir</div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-bell"></i><h3>Mengaktifkan Notifikasi</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Masuk ke <strong>Menu Profil</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Geser tombol di baris <strong>Notifikasi</strong> ke posisi aktif (ON)</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Anda akan menerima pemberitahuan layanan JKN secara otomatis</div></div>
+        </div></div>
+      </div>
+
+      <div class="mjkn-card">
+        <div class="mjkn-card-head"><i class="fa-solid fa-arrow-right-from-bracket"></i><h3>Keluar dari Aplikasi</h3></div>
+        <div class="mjkn-card-body"><div class="mjkn-steps">
+          <div class="mjkn-step"><div class="mjkn-step-num">1</div><div>Buka <strong>Menu Lainnya</strong>, ketuk <strong>Keluar</strong></div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">2</div><div>Ketuk <strong>Setuju</strong> pada pop-up konfirmasi</div></div>
+          <div class="mjkn-step"><div class="mjkn-step-num">3</div><div>Anda akan dikembalikan ke landing page Mobile JKN</div></div>
+        </div></div>
+      </div>
+
+    </div>
+  </div><!-- end panel mobilejkn -->
+
+</main>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="script.js"></script>
+<script>
+/* ══════════════════════════════════════════════
+   FASKES DATA — disusun ulang dari sumber publik
+   Sumber: faskesbpjs.com & bpjs-kesehatan.go.id
+   Data inti: nama, jenis, kecamatan, kode, alamat
+══════════════════════════════════════════════ */
+const FASKES_DB = {
+
+  /* ── KOTA PEMATANGSIANTAR ── */
+  siantar: [
+    // Rumah Sakit
+    {kode:"0036R010", nama:"RS Vita Insani",                    jenis:"RS",        kec:"Siantar Barat",      alamat:"Jl. Merdeka No. 329"},
+    {kode:"0036R013", nama:"RS Tiara Kasih Sejati",             jenis:"RS",        kec:"Siantar Barat",      alamat:"Jl. Menambin No. 4"},
+    {kode:"0036R014", nama:"RS Mata Siantar",                   jenis:"RS",        kec:"Siantar Barat",      alamat:"Jl. Kartini No. 18"},
+    {kode:"0036R015", nama:"RSU Rasyida Siantar",               jenis:"RS",        kec:"Siantar Barat",      alamat:"Jl. Seram Atas No. 5B"},
+    {kode:"0205R002", nama:"Rumkit Tentara TK IV 01.07.01",     jenis:"RS",        kec:"Siantar Barat",      alamat:"Jl. Gunung Simanuk-Manuk No. 6"},
+    {kode:"0036R009", nama:"RS Harapan",                        jenis:"RS",        kec:"Siantar Marihat",    alamat:"Jl. Farel Pasaribu No. 21"},
+    {kode:"0036R011", nama:"RS Horas Insani",                   jenis:"RS",        kec:"Siantar Martoba",    alamat:"Jl. Medan KM 2,5"},
+    {kode:"0205R001", nama:"RSUD dr. Djasamen Saragih",         jenis:"RS",        kec:"Siantar Selatan",    alamat:"Jl. Sutomo No. 130"},
+    {kode:"0036S001", nama:"Klinik Spesialis Mata SMEC",        jenis:"RS",        kec:"Siantar Utara",      alamat:"Jl. Sisingamangaraja, Parluasan"},
+    // Dokter Umum
+    {kode:"0036U031", nama:"dr. Riduwan Vidya Wira",            jenis:"Dokter",    kec:"Siantar Barat",      alamat:"Jl. Sutomo No. 71"},
+    {kode:"0036U033", nama:"Evin Sapetua Damanik",              jenis:"Dokter",    kec:"Siantar Barat",      alamat:"Jl. Merpati No. 19"},
+    {kode:"0036U030", nama:"dr. Melina Situmorang",             jenis:"Dokter",    kec:"Siantar Martoba",    alamat:"Jl. Bukit Maratur, Perum Maranata"},
+    {kode:"0036U028", nama:"dr. Ronald Saragih",                jenis:"Dokter",    kec:"Siantar Timur",      alamat:"Narumonda Bawah No. 136B"},
+    // Klinik
+    {kode:"00360003", nama:"Sikes Rindam I/BB",                 jenis:"Klinik",    kec:"Siantar Barat",      alamat:"Jl. Argasari"},
+    {kode:"00360004", nama:"Klinik Polres Pematangsiantar",     jenis:"Klinik",    kec:"Siantar Barat",      alamat:"Jl. Sudirman No. 08"},
+    {kode:"0036B011", nama:"Klinik Siloam",                     jenis:"Klinik",    kec:"Siantar Barat",      alamat:"Jl. Sudirman No. 23"},
+    {kode:"0036B015", nama:"Klinik Denkesyah 01.04.01",         jenis:"Klinik",    kec:"Siantar Barat",      alamat:"Jl. Gunung Simanuk-Manuk No. 17"},
+    {kode:"0036B018", nama:"Klinik Bersama",                    jenis:"Klinik",    kec:"Siantar Barat",      alamat:"Jl. Bandung No. 09 Komplek TE"},
+    {kode:"0036B022", nama:"Mediska Clinic",                    jenis:"Klinik",    kec:"Siantar Barat",      alamat:"Jl. WR Supratman No. 23"},
+    {kode:"0036B028", nama:"Klinik Kimia Farma",                jenis:"Klinik",    kec:"Siantar Barat",      alamat:"Jl. Kartini No. 19"},
+    {kode:"0036B012", nama:"Klinik Murni",                      jenis:"Klinik",    kec:"Siantar Marihat",    alamat:"Jl. Melanthon Siregar"},
+    {kode:"0036B016", nama:"Klinik Keluarga",                   jenis:"Klinik",    kec:"Siantar Martoba",    alamat:"Jl. Medan No. 18 KM 4"},
+    {kode:"0036B019", nama:"Klinik Ainon",                      jenis:"Klinik",    kec:"Siantar Martoba",    alamat:"Jl. Medan KM 4.5 No. 88-Q"},
+    {kode:"0036B029", nama:"Klinik Advent",                     jenis:"Klinik",    kec:"Siantar Martoba",    alamat:"Jl. Rakutta Sembiring"},
+    {kode:"0036B030", nama:"Klinik BKK",                        jenis:"Klinik",    kec:"Siantar Sitalasari", alamat:"KKO No. 3"},
+    {kode:"0036B026", nama:"Klinik Getsemani",                  jenis:"Klinik",    kec:"Siantar Sitalasari", alamat:"Jl. Viyata Yudha No. 80"},
+    {kode:"0036B027", nama:"Klinik Aisyiyah",                   jenis:"Klinik",    kec:"Siantar Sitalasari", alamat:"Jl. Sisingamangaraja No. 127"},
+    {kode:"0036B009", nama:"Klinik Serasi",                     jenis:"Klinik",    kec:"Siantar Timur",      alamat:"Jl. Ahmad Yani 179K"},
+    {kode:"0036B010", nama:"Klinik Sumber Sehat",               jenis:"Klinik",    kec:"Siantar Timur",      alamat:"Jl. Kapten Tandean Blok D No. 8"},
+    {kode:"0036B013", nama:"Klinik Sima Husada",                jenis:"Klinik",    kec:"Siantar Timur",      alamat:"Jl. Kertas Cetak No. 2A"},
+    {kode:"0036B021", nama:"Klinik Vita Medistra",              jenis:"Klinik",    kec:"Siantar Timur",      alamat:"Jl. Pattimura No. 11 Blok C"},
+    {kode:"0036B017", nama:"Klinik Kasih Pematangsiantar",      jenis:"Klinik",    kec:"Siantar Utara",      alamat:"Jl. Patuan Nagari 67"},
+    // Puskesmas
+    {kode:"02050302", nama:"Puskesmas Singosari",               jenis:"Puskesmas", kec:"Siantar Barat",      alamat:"Jl. Singosari No. 16"},
+    {kode:"02050303", nama:"Puskesmas Raya",                    jenis:"Puskesmas", kec:"Siantar Barat",      alamat:"Jl. Raya No. 8A"},
+    {kode:"00360001", nama:"Puskesmas Simarimbun",              jenis:"Puskesmas", kec:"Siantar Marihat",    alamat:"Jl. Parapat KM 4.5"},
+    {kode:"02050201", nama:"Puskesmas Parsoburan",              jenis:"Puskesmas", kec:"Siantar Marihat",    alamat:"Jl. Parsoburan No. 22"},
+    {kode:"02050203", nama:"Puskesmas Pardamean",               jenis:"Puskesmas", kec:"Siantar Marihat",    alamat:"Jl. Mangga Ujung"},
+    {kode:"02050205", nama:"Puskesmas Bah Biak",                jenis:"Puskesmas", kec:"Siantar Marihat",    alamat:"Jl. Manunggal Karya"},
+    {kode:"02050503", nama:"BP Nauli",                          jenis:"Puskesmas", kec:"Siantar Marihat",    alamat:"BP Nauli"},
+    {kode:"02050502", nama:"Puskesmas Rami",                    jenis:"Puskesmas", kec:"Siantar Martoba",    alamat:"Jl. Medan KM 4,5"},
+    {kode:"2050202",  nama:"Puskesmas Martimbang",              jenis:"Puskesmas", kec:"Siantar Selatan",    alamat:"Jl. Toba II No. 173"},
+    {kode:"2050204",  nama:"Puskesmas Aek Nauli",               jenis:"Puskesmas", kec:"Siantar Selatan",    alamat:"Jl. Rikardo Siahaan No. 10"},
+    {kode:"2050304",  nama:"Puskesmas Karo",                    jenis:"Puskesmas", kec:"Siantar Selatan",    alamat:"Jl. Pane No. 2"},
+    {kode:"360002",   nama:"Puskesmas Bahkapul",                jenis:"Puskesmas", kec:"Siantar Sitalasari", alamat:"Jl. Cadika III"},
+    {kode:"2050301",  nama:"Puskesmas Kartini",                 jenis:"Puskesmas", kec:"Siantar Sitalasari", alamat:"Jl. Dahlia No. 1"},
+    {kode:"2050501",  nama:"Puskesmas Gurilla",                 jenis:"Puskesmas", kec:"Siantar Sitalasari", alamat:"Jl. Gurilla Selatan"},
+    {kode:"2050101",  nama:"Puskesmas Kesatria",                jenis:"Puskesmas", kec:"Siantar Timur",      alamat:"Jl. Pdt. J. Sihombing No. 196"},
+    {kode:"2050102",  nama:"Puskesmas Tomuan",                  jenis:"Puskesmas", kec:"Siantar Timur",      alamat:"Jl. Pattimura Ujung"},
+    {kode:"2050401",  nama:"Puskesmas Martoba",                 jenis:"Puskesmas", kec:"Siantar Utara",      alamat:"Jl. TB Simatupang No. 117"},
+    {kode:"2050402",  nama:"Puskesmas Kahean",                  jenis:"Puskesmas", kec:"Siantar Utara",      alamat:"Jl. Tualang No. 28"},
+    {kode:"2050403",  nama:"Puskesmas Bane",                    jenis:"Puskesmas", kec:"Siantar Utara",      alamat:"Jl. Nanggar Suasa No. 22"},
+    // Apotek
+    {kode:"0036A026", nama:"Kimia Farma 162",                   jenis:"Apotek",    kec:"Siantar Barat",      alamat:"Jl. Kartini No. 19"},
+    {kode:"0036A014", nama:"Apotek Kimia Farma",                jenis:"Apotek",    kec:"Siantar Barat",      alamat:"Jl. Sutomo No. 63"},
+    {kode:"0036A016", nama:"IFRS Rumkit TK IV 01.07.01",        jenis:"Apotek",    kec:"Siantar Barat",      alamat:"Jl. Gunung Simanuk-Manuk No. 06"},
+    {kode:"0036A020", nama:"IFRS Tiara",                        jenis:"Apotek",    kec:"Siantar Barat",      alamat:"Jl. Menambin No. 4"},
+    {kode:"0036A025", nama:"IFRS Rasyida Siantar",              jenis:"Apotek",    kec:"Siantar Barat",      alamat:"Jl. Seram Atas No. 5B"},
+    {kode:"0205A007", nama:"Apotek Sejahtera",                  jenis:"Apotek",    kec:"Siantar Barat",      alamat:"Jl. Sutomo No. 233"},
+    {kode:"0036A022", nama:"IFRS Harapan",                      jenis:"Apotek",    kec:"Siantar Marihat",    alamat:"Jl. Farel Pasaribu No. 21"},
+    {kode:"0036A023", nama:"IFRS RS Horas Insani",              jenis:"Apotek",    kec:"Siantar Martoba",    alamat:"Jl. Medan KM 2.5"},
+    {kode:"0036A027", nama:"Kimia Farma 85",                    jenis:"Apotek",    kec:"Siantar Selatan",    alamat:"Jl. Diponegoro No. 15/87"},
+    {kode:"0036A021", nama:"Apotek Kimia Farma Ahmad Yani",     jenis:"Apotek",    kec:"Siantar Timur",      alamat:"Jl. Ahmad Yani No. 80-82"},
+    {kode:"0036A024", nama:"IFRS RS Vita Insani",               jenis:"Apotek",    kec:"Siantar Timur",      alamat:"Jl. Merdeka No. 329"},
+    // Optik
+    {kode:"0036O006", nama:"Larisma Optikal",                   jenis:"Optik",     kec:"Siantar Barat",      alamat:"Jl. Merdeka No. 32"},
+    {kode:"0036O008", nama:"Rudang Mas Optikal",                jenis:"Optik",     kec:"Siantar Barat",      alamat:"Jl. Sudirman No. 63"},
+    {kode:"0205O001", nama:"Simalungun Optical",                jenis:"Optik",     kec:"Siantar Barat",      alamat:"Jl. Sutomo No. 98"},
+    {kode:"0205O005", nama:"Horas Optical",                     jenis:"Optik",     kec:"Siantar Barat",      alamat:"Jl. Sutomo No. 69"},
+    {kode:"0036O009", nama:"Optik Joy",                         jenis:"Optik",     kec:"Siantar Timur",      alamat:"Jl. Ahmad Yani No. 156"},
+    {kode:"0036O007", nama:"Optik Benedict",                    jenis:"Optik",     kec:"Siantar Utara",      alamat:"Jl. Patuan Nagari No. 17"},
+  ],
+
+  /* ── KAB. SIMALUNGUN ── */
+  simalungun: [
+    // RS
+    {kode:"0029R004", nama:"RSUD Perdagangan",                  jenis:"RS",        kec:"Bandar",              alamat:"Jl. Rajamin Purba, SH"},
+    {kode:"0029R010", nama:"RSU Karya Husada",                  jenis:"RS",        kec:"Bandar",              alamat:"Jl. Merdeka No. 12-18"},
+    {kode:"0029R006", nama:"RS Laras PTP IV",                   jenis:"RS",        kec:"Bandar Huluan",       alamat:"Jl. Besar Pekan Bahapal"},
+    {kode:"0207R001", nama:"RSUD Parapat",                      jenis:"RS",        kec:"Girsang Sipangan Bolon", alamat:"Jl. Rumah Sakit Umum"},
+    {kode:"0029R005", nama:"RSUD Tuan Rondahaim",               jenis:"RS",        kec:"Panumbeian Panei",    alamat:"Jl. P.Siantar–Seribu Dolok"},
+    {kode:"0029R011", nama:"RS GKPS Bethesda Saribudolok",      jenis:"RS",        kec:"Silimakuta",          alamat:"Jl. Kesehatan No. 106"},
+    {kode:"0207R003", nama:"RS Balimbingan PTP IV",             jenis:"RS",        kec:"Tanah Jawa",          alamat:"Jl. Tanah Jawa"},
+    // Dokter
+    {kode:"0029U017", nama:"Andreas Purba",                     jenis:"Dokter",    kec:"Bandar",              alamat:"Jl. Rajamin Purba, Perumahan"},
+    {kode:"0029U015", nama:"dr. Zulfianidar",                   jenis:"Dokter",    kec:"Gunung Malela",       alamat:"Huta I Bangun"},
+    {kode:"0029U018", nama:"dr. Icha Stephanie",                jenis:"Dokter",    kec:"Gunung Maligas",      alamat:"Jl. Anjangsana"},
+    // Klinik
+    {kode:"0029B042", nama:"Pandawa Medical Centre",            jenis:"Klinik",    kec:"Bandar",              alamat:"Jl. Sisingamangaraja No. 02"},
+    {kode:"0029B007", nama:"Klinik Pandu",                      jenis:"Klinik",    kec:"Bandar",              alamat:"Jl. SM Raja No. 627"},
+    {kode:"0029B025", nama:"Klinik dr. Helmi Sinaga",           jenis:"Klinik",    kec:"Bandar",              alamat:"Jl. Simpang Mayang No. 8"},
+    {kode:"0029B039", nama:"Klinik Laras",                      jenis:"Klinik",    kec:"Bandar Huluan",       alamat:"Jl. Besar Bahapal"},
+    {kode:"0029B013", nama:"Klinik Pratama Sei Mangkei",        jenis:"Klinik",    kec:"Bosar Maligas",       alamat:"Jl. Juta II Nagori Sei Mangkei"},
+    {kode:"0029B019", nama:"Klinik Puskesbun Kebun Mayang",     jenis:"Klinik",    kec:"Bosar Maligas",       alamat:"Huta Mayang"},
+    {kode:"0029B014", nama:"Klinik PT Bridgestone",             jenis:"Klinik",    kec:"Dolok Batunanggar",   alamat:"Dolok Merangir I"},
+    {kode:"0029B033", nama:"Yasmin Medical",                    jenis:"Klinik",    kec:"Dolok Batunanggar",   alamat:"Desa Bahbolon, Serbelawan"},
+    {kode:"0029B038", nama:"Klinik Anugrah",                    jenis:"Klinik",    kec:"Dolok Batunanggar",   alamat:"Jl. Merdeka"},
+    {kode:"0029B004", nama:"Klinik Putri Parapat",              jenis:"Klinik",    kec:"Girsang Sipangan Bolon", alamat:"Jl. Josep Sinaga No. 121"},
+    {kode:"0029B015", nama:"Klinik Munthe I",                   jenis:"Klinik",    kec:"Gunung Malela",       alamat:"Huta Margo Mulya Separuh"},
+    {kode:"0029B021", nama:"Klinik Bukit Maradja Estate",       jenis:"Klinik",    kec:"Gunung Malela",       alamat:"Asahan KM 19"},
+    {kode:"0029B037", nama:"Klinik Karang Rejo",                jenis:"Klinik",    kec:"Gunung Maligas",      alamat:"Jl. Arjosari Dusun II"},
+    {kode:"0029B008", nama:"Klinik Mitra Keluarga",             jenis:"Klinik",    kec:"Hatonduhan",          alamat:"Huta III Perbeokan"},
+    {kode:"0029B020", nama:"Klinik Puskesbun Bah Jambi",        jenis:"Klinik",    kec:"Jawa Maraja Bah Jambi", alamat:"Huta Bah Jambi"},
+    {kode:"0029B034", nama:"Klinik Bunda Theresia",             jenis:"Klinik",    kec:"Raya",                alamat:"Raya Tongah Dipar"},
+    {kode:"00290001", nama:"Tonkes Yonif 122/TS",               jenis:"Klinik",    kec:"Siantar",             alamat:"Jl. Melanthon Siregar"},
+    {kode:"00290002", nama:"Klinik Polres Simalungun",          jenis:"Klinik",    kec:"Siantar",             alamat:"Jl. Sangnawaluh"},
+    {kode:"0029B010", nama:"Klinik Restu Bunda",                jenis:"Klinik",    kec:"Siantar",             alamat:"Jl. Ulakma Sinaga No. 49"},
+    {kode:"0029B031", nama:"Klinik Sutra Medical Centre",       jenis:"Klinik",    kec:"Siantar",             alamat:"Jl. Asahan KM 3.5"},
+    {kode:"0029B041", nama:"Puskesbun Sidamanik",               jenis:"Klinik",    kec:"Sidamanik",           alamat:"Desa Sidamanik"},
+    {kode:"0029B011", nama:"Klinik Permata",                    jenis:"Klinik",    kec:"Silimakuta",          alamat:"Jl. Sudirman No. 24"},
+    {kode:"0029B029", nama:"Santo Fransiskus Assisi",           jenis:"Klinik",    kec:"Silimakuta",          alamat:"Jl. Kabanjahe No. 6"},
+    {kode:"0029B026", nama:"Klinik Yasmin",                     jenis:"Klinik",    kec:"Tanah Jawa",          alamat:"Huta V Suhinagodang"},
+    {kode:"0029B036", nama:"Klinik dr. Mulatua Siahaan",        jenis:"Klinik",    kec:"Tanah Jawa",          alamat:"Jl. Besar Bosar Galugur"},
+    {kode:"0029B040", nama:"Klinik Pratama Nusantara",          jenis:"Klinik",    kec:"Tanah Jawa",          alamat:"Jl. Raya Balimbingan"},
+    {kode:"0029B023", nama:"Klinik Tinjouan",                   jenis:"Klinik",    kec:"Ujung Padang",        alamat:"Desa Huta III Tinjouan"},
+    // Puskesmas (43 total)
+    {kode:"00291003", nama:"Puskesmas Marihat Bandar",          jenis:"Puskesmas", kec:"Bandar",              alamat:"Jl. Gereja Nagori Marihat"},
+    {kode:"02070801", nama:"Puskesmas Perdagangan",             jenis:"Puskesmas", kec:"Bandar",              alamat:"Jl. Kartini No. 50"},
+    {kode:"02070805", nama:"Puskesmas Bandar Huluan",           jenis:"Puskesmas", kec:"Bandar Huluan",       alamat:"Bandar Huluan"},
+    {kode:"00291009", nama:"Puskesmas Bandar Tinggi",           jenis:"Puskesmas", kec:"Bandar Masilam",      alamat:"Komplek Pekan Bandar Tinggi"},
+    {kode:"02070803", nama:"Puskesmas Bandar Masilam",          jenis:"Puskesmas", kec:"Bandar Masilam",      alamat:"Bandar Masilam"},
+    {kode:"00291006", nama:"Puskesmas Parbutaran",              jenis:"Puskesmas", kec:"Bosar Maligas",       alamat:"Jl. Tuan Mandis Purba"},
+    {kode:"02071701", nama:"Puskesmas Bosar Maligas",           jenis:"Puskesmas", kec:"Bosar Maligas",       alamat:"Bosar Maligas"},
+    {kode:"00291008", nama:"Puskesmas Bah Bolon",               jenis:"Puskesmas", kec:"Dolok Batunanggar",   alamat:"Dolok Batunanggar"},
+    {kode:"02071401", nama:"Puskesmas Serbelawan",              jenis:"Puskesmas", kec:"Dolok Batunanggar",   alamat:"Serbelawan"},
+    {kode:"02070701", nama:"Puskesmas Tiga Dolok",              jenis:"Puskesmas", kec:"Dolok Panribuan",     alamat:"Tiga Dolok"},
+    {kode:"02070601", nama:"Puskesmas SP Angin",                jenis:"Puskesmas", kec:"Dolok Pardamean",     alamat:"SP. Angin"},
+    {kode:"00291004", nama:"Puskesmas Cingkes",                 jenis:"Puskesmas", kec:"Dolok Silau",         alamat:"Jl. Besar Nagori Cingkes"},
+    {kode:"02071501", nama:"Puskesmas Saran Padang",            jenis:"Puskesmas", kec:"Dolok Silau",         alamat:"Saran Padang"},
+    {kode:"02071201", nama:"Puskesmas Parapat",                 jenis:"Puskesmas", kec:"Girsang Sipangan Bolon", alamat:"Jl. Anggarajim No. 15"},
+    {kode:"00291007", nama:"Puskesmas Bandar Siantar",          jenis:"Puskesmas", kec:"Gunung Malela",       alamat:"Jl. Utama Bandar Siantar"},
+    {kode:"02071002", nama:"Puskesmas Simp Bah Jambi",          jenis:"Puskesmas", kec:"Gunung Malela",       alamat:"Simp. Bah Jambi"},
+    {kode:"02071801", nama:"Puskesmas Gunung Maligas",          jenis:"Puskesmas", kec:"Gunung Maligas",      alamat:"Gunung Maligas"},
+    {kode:"02071301", nama:"Puskesmas Haranggaol",              jenis:"Puskesmas", kec:"Haranggaol Horison",  alamat:"Jl. Besar Haranggaol"},
+    {kode:"00291002", nama:"Puskesmas Buntu Turunan",           jenis:"Puskesmas", kec:"Hatonduhan",          alamat:"Huta VI Titi Beton"},
+    {kode:"02072001", nama:"Puskesmas Hatonduhan",              jenis:"Puskesmas", kec:"Hatonduhan",          alamat:"Hatonduhan"},
+    {kode:"02070302", nama:"Puskesmas Raja Maligas",            jenis:"Puskesmas", kec:"Hutabayu Raja",       alamat:"Raja Maligas"},
+    {kode:"02070303", nama:"Puskesmas Huta Bayu",               jenis:"Puskesmas", kec:"Hutabayu Raja",       alamat:"Huta Bayu"},
+    {kode:"02071901", nama:"Puskesmas Jawamaraja Bah Jambi",    jenis:"Puskesmas", kec:"Jawa Maraja Bah Jambi", alamat:"Huta Jawa Maraja I"},
+    {kode:"02071101", nama:"Puskesmas Tiga Balata",             jenis:"Puskesmas", kec:"Jorlang Hataran",     alamat:"Tiga Balata"},
+    {kode:"02070401", nama:"Puskesmas Panei Tongah",            jenis:"Puskesmas", kec:"Pane",                alamat:"Panei Tongah"},
+    {kode:"02072101", nama:"Puskesmas Panombean",               jenis:"Puskesmas", kec:"Panumbeian Panei",    alamat:"Batu IV Pamatang Panombeian"},
+    {kode:"02070802", nama:"Puskesmas Pematang Bandar",         jenis:"Puskesmas", kec:"Pematang Bandar",     alamat:"Pematang Bandar"},
+    {kode:"02070804", nama:"Puskesmas Kerasaan",                jenis:"Puskesmas", kec:"Pematang Bandar",     alamat:"Kerasaan"},
+    {kode:"02070501", nama:"Puskesmas Sidamanik",               jenis:"Puskesmas", kec:"Pematang Sidamanik",  alamat:"Tiga Urung"},
+    {kode:"00290902", nama:"Puskesmas Pamatang Silimahuta",     jenis:"Puskesmas", kec:"Pematang Silimahuta", alamat:"Pamatang Silimahuta"},
+    {kode:"02071302", nama:"Puskesmas Tiga Runggu",             jenis:"Puskesmas", kec:"Purba",               alamat:"Tiga Runggu"},
+    {kode:"02070201", nama:"Puskesmas Pematang Raya",           jenis:"Puskesmas", kec:"Raya",                alamat:"Pematang Raya"},
+    {kode:"02070901", nama:"Puskesmas Sindarraya",              jenis:"Puskesmas", kec:"Raya Kahean",         alamat:"Sindarraya"},
+    {kode:"00291001", nama:"Puskesmas Rambung Merah",           jenis:"Puskesmas", kec:"Siantar",             alamat:"Jl. Guru Jason Saragih"},
+    {kode:"02071001", nama:"Puskesmas Silau Malaha",            jenis:"Puskesmas", kec:"Siantar",             alamat:"Silau Malaha"},
+    {kode:"02071003", nama:"Puskesmas Batu Anam",               jenis:"Puskesmas", kec:"Siantar",             alamat:"Batu Anam"},
+    {kode:"02070502", nama:"Puskesmas Sari Matondang",          jenis:"Puskesmas", kec:"Sidamanik",           alamat:"Sari Matondang"},
+    {kode:"02071601", nama:"Puskesmas Negeri Dolok",            jenis:"Puskesmas", kec:"Silau Kahean",        alamat:"Negeri Dolok"},
+    {kode:"02070101", nama:"Puskesmas Seribudolok",             jenis:"Puskesmas", kec:"Silimakuta",          alamat:"Seribudolok"},
+    {kode:"00291005", nama:"Puskesmas Marubun Jaya",            jenis:"Puskesmas", kec:"Tanah Jawa",          alamat:"Jl. Pematangsiantar–Tanah Jawa"},
+    {kode:"02070301", nama:"Puskesmas Tanah Jawa",              jenis:"Puskesmas", kec:"Tanah Jawa",          alamat:"Tanah Jawa"},
+    {kode:"02071402", nama:"Puskesmas Tapian Dolok",            jenis:"Puskesmas", kec:"Tapian Dolok",        alamat:"Tapian Dolok"},
+    {kode:"02071702", nama:"Puskesmas Ujung Padang",            jenis:"Puskesmas", kec:"Ujung Padang",        alamat:"Ujung Padang"},
+  ],
+
+  /* ── KAB. TOBA ── */
+  toba: [
+    // RS
+    {kode:"0218R003", nama:"RSU HKBP Balige",                   jenis:"RS",        kec:"Balige",              alamat:"Jl. Gereja No. 17 Balige"},
+    {kode:"0218R001", nama:"RSUD Porsea",                        jenis:"RS",        kec:"Porsea",              alamat:"Jl. Raja Sipakko Napitupulu"},
+    // Dokter
+    {kode:"0026U009", nama:"Praktek Mandaoni",                   jenis:"Dokter",    kec:"Balige",              alamat:"Jl. Pematangsiantar No. 8 Sibu"},
+    {kode:"0026U007", nama:"dr. Christian Johannes L",           jenis:"Dokter",    kec:"Lagu Boti",           alamat:"Desa Situluama, Kec. Laguboti"},
+    // Klinik
+    {kode:"0026B005", nama:"Klinik St. Katarina",                jenis:"Klinik",    kec:"Balige",              alamat:"Jl. Tandang Buhit"},
+    {kode:"0026B004", nama:"PT Margie Andalan",                  jenis:"Klinik",    kec:"Parmaksian",          alamat:"Komplek PT Toba Pulp Lestari"},
+    {kode:"0026B003", nama:"PT Inalum Paritohan",                jenis:"Klinik",    kec:"Pintu Pohan Meranti",  alamat:"Paritohan"},
+    {kode:"0026B000", nama:"BP Maristella",                      jenis:"Klinik",    kec:"Porsea",              alamat:"Jl. DI Panjaitan No. 45"},
+    {kode:"00260002", nama:"Klinik Polres Toba Samosir",         jenis:"Klinik",    kec:"Siantar Narumonda",   alamat:"Jl. Sipinggol Dolok Porsea"},
+    // Puskesmas
+    {kode:"02180901", nama:"Puskesmas Ajibata",                  jenis:"Puskesmas", kec:"Ajibata",             alamat:"Jl. Pembangunan 2"},
+    {kode:"02180301", nama:"Puskesmas Balige",                   jenis:"Puskesmas", kec:"Balige",              alamat:"Jl. Patuan Nagari Balige"},
+    {kode:"02180302", nama:"Puskesmas Soposurung",               jenis:"Puskesmas", kec:"Balige",              alamat:"Jl. Kartini Soposurung"},
+    {kode:"02180101", nama:"Puskesmas Borbor",                   jenis:"Puskesmas", kec:"Borbor",              alamat:"Jl. Onan Borbor"},
+    {kode:"02180501", nama:"Puskesmas Parsoburan",               jenis:"Puskesmas", kec:"Habinsaran",          alamat:"Jl. Lumban Rau Parsoburan"},
+    {kode:"02180401", nama:"Puskesmas Laguboti",                 jenis:"Puskesmas", kec:"Lagu Boti",           alamat:"Jl. DI Panjaitan"},
+    {kode:"02180801", nama:"Puskesmas Aeknatolu",                jenis:"Puskesmas", kec:"Lumban Julu",         alamat:"Jl. Desa Aek Natolu Jaya"},
+    {kode:"02181002", nama:"Puskesmas Lumban Lobu",              jenis:"Puskesmas", kec:"Lumban Julu",         alamat:"Jl. Pasar Lumban Lobu"},
+    {kode:"02181305", nama:"Puskesmas Lumban Julu",              jenis:"Puskesmas", kec:"Lumban Julu",         alamat:"Komplek Kantor Camat Lbn Julu"},
+    {kode:"02181401", nama:"Puskesmas Nassau",                   jenis:"Puskesmas", kec:"Nassau",              alamat:"Nassau"},
+    {kode:"00260001", nama:"Puskesmas Parmaksian",               jenis:"Puskesmas", kec:"Parmaksian",          alamat:"Jl. Raja Runggu Nalela 2"},
+    {kode:"02180201", nama:"Puskesmas Pintu Pohan Meranti",      jenis:"Puskesmas", kec:"Pintu Pohan Meranti",  alamat:"Jl. Pasanggrahan"},
+    {kode:"02180701", nama:"Puskesmas Porsea",                   jenis:"Puskesmas", kec:"Porsea",              alamat:"Jl. FL Tobing No. 1 Porsea"},
+    {kode:"02180702", nama:"Puskesmas Narumonda",                jenis:"Puskesmas", kec:"Siantar Narumonda",   alamat:"Jl. Prof KP Tomama Sinambe"},
+    {kode:"02181304", nama:"Puskesmas Sigumpar",                 jenis:"Puskesmas", kec:"Sigumpar",            alamat:"Jl. Lintas Sumatera Sigumpar"},
+    {kode:"02180601", nama:"Puskesmas Silaen",                   jenis:"Puskesmas", kec:"Silaen",              alamat:"Jl. Sisingamangaraja"},
+    {kode:"02180303", nama:"Puskesmas Tampahan",                 jenis:"Puskesmas", kec:"Tampahan",            alamat:"Jl. SM Simanjuntak"},
+    {kode:"02180802", nama:"Puskesmas Uluan",                    jenis:"Puskesmas", kec:"Uluan",               alamat:"Desa Uluan"},
+    {kode:"02180803", nama:"Puskesmas Janji Matogu",             jenis:"Puskesmas", kec:"Uluan",               alamat:"Jl. Desa Dolok Saribu"},
+    // Apotek
+    {kode:"0218A003", nama:"Inst Farmasi RSU HKBP Balige",      jenis:"Apotek",    kec:"Balige",              alamat:"Jl. Gereja"},
+    {kode:"0026A017", nama:"Apotek Manna",                       jenis:"Apotek",    kec:"Porsea",              alamat:"Jl. Sisingamangaraja Porsea–Balige"},
+    {kode:"0026A012", nama:"Apotek Tiara",                       jenis:"Apotek",    kec:"Porsea",              alamat:"Jl. Balige No. 45"},
+    {kode:"0026A013", nama:"Apotek Tiara (PRB)",                 jenis:"Apotek",    kec:"Porsea",              alamat:"Jl. Balige No. 45"},
+    {kode:"0026A016", nama:"IFRS RSUD Porsea",                   jenis:"Apotek",    kec:"Porsea",              alamat:"Jl. Raja Sipakko No. 11"},
+  ],
+
+  /* ── KAB. SAMOSIR ── */
+  samosir: [
+    // RS
+    {kode:"0218R002", nama:"RSUD dr. Hadrianus Sinaga",          jenis:"RS",        kec:"Pangururan",          alamat:"Jl. Dr. Hadrianus Sinaga"},
+    // Dokter
+    {kode:"0278U002", nama:"dr. Nimpan Karo-Karo",               jenis:"Dokter",    kec:"Pangururan",          alamat:"Jl. Kol. Liberty Malau"},
+    {kode:"0278U003", nama:"dr. Elya Nora Girsang",              jenis:"Dokter",    kec:"Pangururan",          alamat:"Desa Hutanamora"},
+    {kode:"0278U006", nama:"dr. Joice Harry Nainggolan",         jenis:"Dokter",    kec:"Pangururan",          alamat:"Jl. Besar Simanindo KM 2 Buhit"},
+    {kode:"0278U004", nama:"dr. Fina Ansisfa Panggabean",        jenis:"Dokter",    kec:"Simanindo",           alamat:"Jl. Pasar Baru, Tomok"},
+    // Klinik
+    {kode:"0278B002", nama:"Santa Maria Palipi",                  jenis:"Klinik",    kec:"Palipi",              alamat:"Jl. Besar Palipi Pangururan"},
+    {kode:"02780002", nama:"Klinik Polres Samosir",               jenis:"Klinik",    kec:"Pangururan",          alamat:"Jl. Danau Toba 03 Pangururan"},
+    {kode:"0278B001", nama:"Klinik Santa Elisabeth",              jenis:"Klinik",    kec:"Pangururan",          alamat:"Jl. UA Sugiyopranoto No. 1"},
+    {kode:"0278B003", nama:"Klinik Tiramsa",                     jenis:"Klinik",    kec:"Pangururan",          alamat:"Jl. Kejaksaan No. 38 Pasar"},
+    // Puskesmas
+    {kode:"02780901", nama:"Puskesmas Sitio Tio",                jenis:"Puskesmas", kec:"Sitio Tio",           alamat:"Sitio Tio"},
+    {kode:"02780101", nama:"Puskesmas Harian",                   jenis:"Puskesmas", kec:"Harian",              alamat:"Harian"},
+    {kode:"02780401", nama:"Puskesmas Sirait",                   jenis:"Puskesmas", kec:"Nainggolan",          alamat:"Pasaran I, Nainggolan"},
+    {kode:"02780301", nama:"Puskesmas Onan Runggu",              jenis:"Puskesmas", kec:"Onan Runggu",         alamat:"Onan Runggu"},
+    {kode:"02780501", nama:"Puskesmas Mogang",                   jenis:"Puskesmas", kec:"Palipi",              alamat:"Mogang"},
+    {kode:"02780601", nama:"Puskesmas Buhit",                    jenis:"Puskesmas", kec:"Pangururan",          alamat:"Jl. Simanindo KM 02"},
+    {kode:"02780801", nama:"Puskesmas Ronggur Nihuta",           jenis:"Puskesmas", kec:"Ronggur Nihuta",      alamat:"Ronggur Nihuta"},
+    {kode:"02780201", nama:"Puskesmas Limbong",                  jenis:"Puskesmas", kec:"Sianjur Mula Mula",   alamat:"Limbong"},
+    {kode:"02780001", nama:"Puskesmas Lontung",                  jenis:"Puskesmas", kec:"Simanindo",           alamat:"Desa Parmonangan"},
+    {kode:"02780701", nama:"Puskesmas Tuktuk Siadong",           jenis:"Puskesmas", kec:"Simanindo",           alamat:"Tuktuk Siadong"},
+    {kode:"02780702", nama:"Puskesmas Ambarita",                 jenis:"Puskesmas", kec:"Simanindo",           alamat:"Jl. Raya Ambarita"},
+    {kode:"02780703", nama:"Puskesmas Simarmata",                jenis:"Puskesmas", kec:"Simanindo",           alamat:"Jl. Raya Simanindo"},
+    // Apotek
+    {kode:"0278A007", nama:"IFRS RSUD dr. Hadrianus Sinaga",     jenis:"Apotek",    kec:"Pangururan",          alamat:"Jl. Dr. Hadrianus Sinaga No. 86"},
+    // Optik
+    {kode:"0026O002", nama:"Optikal Tobasa",                     jenis:"Optik",     kec:"Balige",              alamat:"Jl. Sisingamangaraja No. 146"},
+    {kode:"0218O001", nama:"Matahari Optical",                   jenis:"Optik",     kec:"Balige",              alamat:"Jl. Patuan Nagari No. 33 Balige"},
+    {kode:"0026O003", nama:"Optikal Martabe",                    jenis:"Optik",     kec:"Porsea",              alamat:"Jl. Sisingamangaraja No. 96"},
+  ]
+};
+
+/* ══════════════════════
+   UI STATE & LOGIC
+══════════════════════ */
+let currentPanel = 'siantar';
+let currentView  = 'card';   // 'card' | 'table'
+
+const typeIcons = {
+  RS:        'fa-hospital',
+  Klinik:    'fa-kit-medical',
+  Puskesmas: 'fa-house-medical',
+  Dokter:    'fa-user-doctor',
+  Apotek:    'fa-prescription-bottle-medical',
+  Optik:     'fa-glasses',
+};
+
+function buildCard(item, idx) {
+  return `
+  <div class="fcard" data-type="${item.jenis}" data-kec="${item.kec}">
+    <div class="fcard-header">
+      <div class="fcard-icon type-${item.jenis}">
+        <i class="fa-solid ${typeIcons[item.jenis] || 'fa-circle-h'}"></i>
+      </div>
+      <div class="fcard-title-wrap">
+        <div class="fcard-name">${item.nama}</div>
+        <div class="fcard-code">${item.kode}</div>
+      </div>
+      <span class="fcard-badge badge-${item.jenis}">${item.jenis}</span>
+    </div>
+    <div class="fcard-meta">
+      <div class="fcard-meta-row"><i class="fa-solid fa-location-dot"></i><span>${item.kec}</span></div>
+      <div class="fcard-meta-row"><i class="fa-solid fa-map-pin"></i><span>${item.alamat}</span></div>
+    </div>
+  </div>`;
+}
+
+function buildRow(item, idx) {
+  return `<tr data-type="${item.jenis}" data-kec="${item.kec}">
+    <td>${idx + 1}</td>
+    <td><span class="td-code">${item.kode}</span></td>
+    <td class="td-name">${item.nama}</td>
+    <td><span class="fcard-badge badge-${item.jenis}">${item.jenis}</span></td>
+    <td>${item.kec}</td>
+    <td class="td-addr">${item.alamat}</td>
+  </tr>`;
+}
+
+function renderPanel(panelId) {
+  const data = FASKES_DB[panelId];
+  if (!data) return;
+
+  document.getElementById(`grid-${panelId}`).innerHTML = data.map(buildCard).join('');
+  document.getElementById(`tbody-${panelId}`).innerHTML = data.map(buildRow).join('');
+}
+
+function getActiveData() {
+  return FASKES_DB[currentPanel] || [];
+}
+
+function filterAndRender() {
+  const q    = document.getElementById('searchInput').value.trim().toLowerCase();
+  const type = document.getElementById('typeFilter').value;
+  const kec  = document.getElementById('kecFilter').value;
+  const data = getActiveData();
+
+  const filtered = data.filter(item => {
+    const matchQ    = !q || item.nama.toLowerCase().includes(q) || item.alamat.toLowerCase().includes(q) || item.kec.toLowerCase().includes(q) || item.kode.toLowerCase().includes(q);
+    const matchType = !type || item.jenis === type;
+    const matchKec  = !kec  || item.kec === kec;
+    return matchQ && matchType && matchKec;
+  });
+
+  // Cards
+  const grid = document.getElementById(`grid-${currentPanel}`);
+  if (grid) grid.innerHTML = filtered.map(buildCard).join('');
+
+  // Table rows
+  const tbody = document.getElementById(`tbody-${currentPanel}`);
+  if (tbody) tbody.innerHTML = filtered.map(buildRow).join('');
+
+  // Empty state
+  const empty = document.getElementById(`empty-${currentPanel}`);
+  if (empty) empty.style.display = filtered.length === 0 ? 'block' : 'none';
+
+  // Result count
+  const ri = document.getElementById('resultInfo');
+  ri.style.display = 'flex';
+  document.getElementById('countShown').textContent = filtered.length;
+  document.getElementById('countTotal').textContent = data.length;
+}
+
+function populateKecFilter(panelId) {
+  const data = FASKES_DB[panelId] || [];
+  const kecs = [...new Set(data.map(d => d.kec))].sort();
+  const sel  = document.getElementById('kecFilter');
+  sel.innerHTML = '<option value="">Semua Kecamatan</option>' +
+    kecs.map(k => `<option value="${k}">${k}</option>`).join('');
+}
+
+function switchPanel(panelId) {
+  currentPanel = panelId;
+
+  // Tabs
+  document.querySelectorAll('.fn-tab').forEach(t => {
+    t.classList.toggle('active', t.dataset.panel === panelId);
+  });
+
+  // Panels
+  document.querySelectorAll('.faskes-panel').forEach(p => {
+    p.classList.toggle('active', p.id === `panel-${panelId}`);
+  });
+
+  // Control bar
+  const isFaskes = panelId !== 'mobilejkn';
+  document.getElementById('controlBar').style.display = isFaskes ? 'flex' : 'none';
+  document.getElementById('resultInfo').style.display = 'none';
+
+  if (isFaskes) {
+    renderPanel(panelId);
+    populateKecFilter(panelId);
+    document.getElementById('searchInput').value = '';
+    document.getElementById('typeFilter').value  = '';
+    document.getElementById('kecFilter').value   = '';
+    applyViewMode(currentView);
+  }
+}
+
+function applyViewMode(mode) {
+  currentView = mode;
+  document.getElementById('btnCardView').classList.toggle('active', mode === 'card');
+  document.getElementById('btnTableView').classList.toggle('active', mode === 'table');
+
+  ['siantar','simalungun','toba','samosir'].forEach(pid => {
+    const g = document.getElementById(`grid-${pid}`);
+    const t = document.getElementById(`table-${pid}`);
+    if (!g || !t) return;
+    g.style.display = mode === 'card'  ? 'grid' : 'none';
+    t.style.display = mode === 'table' ? 'block': 'none';
+  });
+}
+
+// Update hero stat
+function updateStatTotal() {
+  let total = 0;
+  Object.values(FASKES_DB).forEach(arr => total += arr.length);
+  const el = document.getElementById('statTotal');
+  if (el) el.textContent = total;
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  updateStatTotal();
+
+  // Render all panels once
+  ['siantar','simalungun','toba','samosir'].forEach(renderPanel);
+
+  // Tab click
+  document.querySelectorAll('.fn-tab').forEach(btn => {
+    btn.addEventListener('click', () => switchPanel(btn.dataset.panel));
+  });
+
+  // Search & filter
+  document.getElementById('searchInput').addEventListener('input', filterAndRender);
+  document.getElementById('typeFilter').addEventListener('change', filterAndRender);
+  document.getElementById('kecFilter').addEventListener('change', filterAndRender);
+
+  // Reset
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('typeFilter').value  = '';
+    document.getElementById('kecFilter').value   = '';
+    renderPanel(currentPanel);
+    document.getElementById('resultInfo').style.display = 'none';
+  });
+
+  // View toggle
+  document.getElementById('btnCardView').addEventListener('click', () => applyViewMode('card'));
+  document.getElementById('btnTableView').addEventListener('click', () => applyViewMode('table'));
+
+  // URL param ?tab=
+  const params = new URLSearchParams(location.search);
+  const tab = params.get('tab');
+  if (tab && ['siantar','simalungun','toba','samosir','mobilejkn'].includes(tab)) {
+    switchPanel(tab);
+  } else {
+    switchPanel('siantar');
+    populateKecFilter('siantar');
+  }
+});
+</script>
+
+<!-- Dropdown Nav CSS (tambahan khusus faskes) -->
+<style>
+/* ── Dropdown Nav ── */
+.nav-dropdown { position: relative; }
+.nav-link-dropdown { display: flex; align-items: center; gap: .35rem; }
+.nav-dd-icon { font-size: .65em; transition: transform .25s ease; }
+.nav-dropdown:hover .nav-dd-icon { transform: rotate(180deg); }
+.nav-dd-menu {
+  position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-lg); box-shadow: var(--sh-xl);
+  min-width: 280px; padding: .5rem;
+  opacity: 0; pointer-events: none; visibility: hidden;
+  transition: opacity .22s ease, transform .22s ease;
+  transform: translateX(-50%) translateY(8px);
+  z-index: 2000;
+}
+.nav-dropdown:hover .nav-dd-menu,
+.nav-dropdown:focus-within .nav-dd-menu {
+  opacity: 1; pointer-events: auto; visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dd-header {
+  font-size: .65rem; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--txt-3);
+  padding: .4rem .75rem .6rem; border-bottom: 1px solid var(--border);
+  margin-bottom: .35rem;
+}
+.nav-dd-item {
+  display: flex; align-items: center; gap: .75rem;
+  padding: .6rem .75rem; border-radius: var(--r-md);
+  transition: background .15s ease; color: var(--txt);
+}
+.nav-dd-item:hover { background: var(--bg-alt); }
+.nav-dd-item-icon {
+  width: 34px; height: 34px; border-radius: var(--r-sm); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-size: .85rem;
+}
+.nav-dd-item-title { font-size: .82rem; font-weight: 700; color: var(--txt); }
+.nav-dd-item-sub   { font-size: .7rem; color: var(--txt-3); }
+
+/* Mobile: dropdown as list */
+@media (max-width: 767px) {
+  .nav-dd-menu {
+    position: static; transform: none;
+    opacity: 1; visibility: visible; pointer-events: auto;
+    box-shadow: none; border: none;
+    padding: 0 0 0 1rem;
+    display: none;
+  }
+  .nav-dropdown.open .nav-dd-menu { display: block; }
+  .nav-dd-icon { display: none; }
+}
+</style>
+
+</body>
+</html>
