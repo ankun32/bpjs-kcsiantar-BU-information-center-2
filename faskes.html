@@ -238,6 +238,106 @@
   .fcard-meta-row { display: flex; align-items: flex-start; gap: .5rem; font-size: clamp(.73rem,1.5vw,.78rem); color: var(--txt-2); }
   .fcard-meta-row i { color: var(--txt-3); font-size: .7rem; margin-top: .15rem; flex-shrink: 0; width: 14px; }
 
+  /* ── Lokasi Button on Card ── */
+  .fcard-loc-btn {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .44rem .9rem; border-radius: var(--r-full);
+    font-size: .72rem; font-weight: 700;
+    background: linear-gradient(135deg, rgba(0,109,179,.12), rgba(0,159,227,.08));
+    border: 1px solid rgba(0,159,227,.25); color: var(--c-primary);
+    cursor: pointer; transition: all .22s ease;
+    width: 100%; justify-content: center; margin-top: .25rem;
+    font-family: inherit;
+  }
+  [data-theme="dark"] .fcard-loc-btn { background: rgba(0,159,227,.1); color: #7dd0f0; border-color: rgba(0,229,255,.2); }
+  .fcard-loc-btn:hover { background: linear-gradient(135deg,#006db3,#009FE3); color: white; border-color: transparent; box-shadow: 0 4px 16px rgba(0,109,179,.3); transform: translateY(-1px); }
+  .fcard-loc-btn i { font-size: .75rem; }
+
+  /* Table lokasi link */
+  .td-loc-btn {
+    display: inline-flex; align-items: center; gap: .35rem;
+    padding: .3rem .75rem; border-radius: var(--r-full);
+    font-size: .7rem; font-weight: 700;
+    background: rgba(0,109,179,.08); border: 1px solid rgba(0,109,179,.2);
+    color: var(--c-primary); cursor: pointer; transition: all .2s ease;
+    white-space: nowrap; font-family: inherit;
+  }
+  [data-theme="dark"] .td-loc-btn { background: rgba(0,159,227,.08); color: #7dd0f0; border-color: rgba(0,229,255,.18); }
+  .td-loc-btn:hover { background: var(--c-primary); color: white; border-color: transparent; }
+
+  /* ── Map Modal ── */
+  .map-modal-overlay {
+    position: fixed; inset: 0; z-index: 9000;
+    background: rgba(0,0,0,.75); backdrop-filter: blur(6px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+    opacity: 0; pointer-events: none; visibility: hidden;
+    transition: opacity .25s ease, visibility .25s;
+  }
+  .map-modal-overlay.open { opacity: 1; pointer-events: auto; visibility: visible; }
+  .map-modal {
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: var(--r-lg); box-shadow: 0 24px 80px rgba(0,0,0,.7);
+    width: 100%; max-width: 780px;
+    overflow: hidden;
+    transform: translateY(20px) scale(.97);
+    transition: transform .28s ease;
+    max-height: 92vh; display: flex; flex-direction: column;
+  }
+  .map-modal-overlay.open .map-modal { transform: translateY(0) scale(1); }
+  .map-modal-head {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .map-modal-head-left { display: flex; align-items: flex-start; gap: .85rem; }
+  .map-modal-ico {
+    width: 44px; height: 44px; border-radius: var(--r-md); flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1rem;
+  }
+  .map-modal-title { font-size: clamp(.88rem,1.8vw,.98rem); font-weight: 800; color: var(--txt); line-height: 1.3; margin-bottom: .2rem; }
+  .map-modal-sub { font-size: .75rem; color: var(--txt-2); display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+  .map-modal-sub span { display: flex; align-items: center; gap: .3rem; }
+  .map-modal-close {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    background: var(--bg-alt); border: 1px solid var(--border);
+    color: var(--txt-3); display: flex; align-items: center; justify-content: center;
+    font-size: .82rem; cursor: pointer; transition: all .2s ease;
+  }
+  .map-modal-close:hover { background: #e63946; color: white; border-color: #e63946; }
+  .map-modal-iframe-wrap { flex: 1; position: relative; min-height: 0; }
+  .map-modal-iframe-wrap iframe { display: block; width: 100%; height: 420px; border: none; }
+  .map-modal-foot {
+    padding: .85rem 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+    flex-wrap: wrap; flex-shrink: 0;
+  }
+  .map-modal-kode { font-size: .7rem; font-family: monospace; color: var(--txt-3); background: var(--bg-alt); padding: .22rem .6rem; border-radius: 6px; }
+  .map-modal-foot-btns { display: flex; gap: .5rem; }
+  .map-open-btn {
+    display: inline-flex; align-items: center; gap: .4rem;
+    padding: .55rem 1.1rem; border-radius: var(--r-full);
+    font-size: .78rem; font-weight: 700; cursor: pointer;
+    transition: all .2s ease; font-family: inherit; border: none;
+  }
+  .map-open-gmaps { background: linear-gradient(135deg,#006db3,#009FE3); color: white; box-shadow: 0 4px 14px rgba(0,109,179,.28); }
+  .map-open-gmaps:hover { box-shadow: 0 6px 22px rgba(0,109,179,.45); transform: translateY(-1px); }
+  .map-open-dir { background: linear-gradient(135deg,#e63946,#c1121f); color: white; box-shadow: 0 4px 14px rgba(230,57,70,.28); }
+  .map-open-dir:hover { box-shadow: 0 6px 22px rgba(230,57,70,.42); transform: translateY(-1px); }
+  .map-loading { position: absolute; inset: 0; background: var(--bg-alt); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .75rem; color: var(--txt-3); }
+  .map-loading-spin { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--c-primary); border-radius: 50%; animation: spin-loader 1s linear infinite; }
+  @keyframes spin-loader { to { transform: rotate(360deg); } }
+
+  @media (max-width: 600px) {
+    .map-modal-iframe-wrap iframe { height: 300px; }
+    .map-modal-foot { flex-direction: column; align-items: stretch; }
+    .map-modal-foot-btns { flex-direction: column; }
+    .map-open-btn { justify-content: center; }
+  }
+
   /* ══ TABLE VIEW ══ */
   .faskes-table-wrap {
     background: var(--bg-card); border: 1px solid var(--border);
@@ -522,28 +622,28 @@
   <!-- ══════════ PANEL: PEMATANGSIANTAR ══════════ -->
   <div class="faskes-panel active" id="panel-siantar">
     <div class="faskes-cards-grid" id="grid-siantar"></div>
-    <div class="faskes-table-wrap" id="table-siantar" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-siantar"></tbody></table></div>
+    <div class="faskes-table-wrap" id="table-siantar" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th><th>Lokasi</th></tr></thead><tbody id="tbody-siantar"></tbody></table></div>
     <div class="faskes-empty" id="empty-siantar" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
   </div>
 
   <!-- ══════════ PANEL: SIMALUNGUN ══════════ -->
   <div class="faskes-panel" id="panel-simalungun">
     <div class="faskes-cards-grid" id="grid-simalungun"></div>
-    <div class="faskes-table-wrap" id="table-simalungun" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-simalungun"></tbody></table></div>
+    <div class="faskes-table-wrap" id="table-simalungun" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th><th>Lokasi</th></tr></thead><tbody id="tbody-simalungun"></tbody></table></div>
     <div class="faskes-empty" id="empty-simalungun" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
   </div>
 
   <!-- ══════════ PANEL: TOBA ══════════ -->
   <div class="faskes-panel" id="panel-toba">
     <div class="faskes-cards-grid" id="grid-toba"></div>
-    <div class="faskes-table-wrap" id="table-toba" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-toba"></tbody></table></div>
+    <div class="faskes-table-wrap" id="table-toba" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th><th>Lokasi</th></tr></thead><tbody id="tbody-toba"></tbody></table></div>
     <div class="faskes-empty" id="empty-toba" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
   </div>
 
   <!-- ══════════ PANEL: SAMOSIR ══════════ -->
   <div class="faskes-panel" id="panel-samosir">
     <div class="faskes-cards-grid" id="grid-samosir"></div>
-    <div class="faskes-table-wrap" id="table-samosir" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th></tr></thead><tbody id="tbody-samosir"></tbody></table></div>
+    <div class="faskes-table-wrap" id="table-samosir" style="display:none"><table class="faskes-table"><thead><tr><th>#</th><th>Kode</th><th>Nama Faskes</th><th>Jenis</th><th>Kecamatan</th><th>Alamat</th><th>Lokasi</th></tr></thead><tbody id="tbody-samosir"></tbody></table></div>
     <div class="faskes-empty" id="empty-samosir" style="display:none"><i class="fa-solid fa-magnifying-glass"></i><h3>Tidak ditemukan</h3><p>Coba kata kunci atau filter lain.</p></div>
   </div>
 
@@ -918,6 +1018,9 @@ const typeIcons = {
 };
 
 function buildCard(item, idx) {
+  // Encode item data safely as data-attributes to avoid quote conflicts in onclick
+  const safeNama   = item.nama.replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  const safeAlamat = item.alamat.replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   return `
   <div class="fcard" data-type="${item.jenis}" data-kec="${item.kec}">
     <div class="fcard-header">
@@ -934,10 +1037,20 @@ function buildCard(item, idx) {
       <div class="fcard-meta-row"><i class="fa-solid fa-location-dot"></i><span>${item.kec}</span></div>
       <div class="fcard-meta-row"><i class="fa-solid fa-map-pin"></i><span>${item.alamat}</span></div>
     </div>
+    <button class="fcard-loc-btn"
+      data-kode="${item.kode}"
+      data-nama="${safeNama}"
+      data-jenis="${item.jenis}"
+      data-kec="${item.kec}"
+      data-alamat="${safeAlamat}">
+      <i class="fa-solid fa-map-location-dot"></i> Lihat Lokasi di Maps
+    </button>
   </div>`;
 }
 
 function buildRow(item, idx) {
+  const safeNama   = item.nama.replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  const safeAlamat = item.alamat.replace(/"/g,'&quot;').replace(/'/g,'&#39;');
   return `<tr data-type="${item.jenis}" data-kec="${item.kec}">
     <td>${idx + 1}</td>
     <td><span class="td-code">${item.kode}</span></td>
@@ -945,6 +1058,12 @@ function buildRow(item, idx) {
     <td><span class="fcard-badge badge-${item.jenis}">${item.jenis}</span></td>
     <td>${item.kec}</td>
     <td class="td-addr">${item.alamat}</td>
+    <td><button class="td-loc-btn"
+      data-kode="${item.kode}"
+      data-nama="${safeNama}"
+      data-jenis="${item.jenis}"
+      data-kec="${item.kec}"
+      data-alamat="${safeAlamat}"><i class="fa-solid fa-map-location-dot"></i> Lokasi</button></td>
   </tr>`;
 }
 
@@ -1147,6 +1266,144 @@ document.addEventListener('DOMContentLoaded', () => {
   .nav-dd-icon { display: none; }
 }
 </style>
+
+<!-- ════════════════════════════════════
+     MAP MODAL
+════════════════════════════════════ -->
+<div class="map-modal-overlay" id="mapModalOverlay" role="dialog" aria-modal="true" aria-labelledby="mapModalTitle">
+  <div class="map-modal">
+    <div class="map-modal-head">
+      <div class="map-modal-head-left">
+        <div class="map-modal-ico" id="mapModalIco"><i class="fa-solid fa-hospital"></i></div>
+        <div>
+          <div class="map-modal-title" id="mapModalTitle">Nama Faskes</div>
+          <div class="map-modal-sub">
+            <span><i class="fa-solid fa-tag"></i> <span id="mapModalJenis"></span></span>
+            <span><i class="fa-solid fa-location-dot"></i> <span id="mapModalKec"></span></span>
+            <span><i class="fa-solid fa-map-pin"></i> <span id="mapModalAlamat"></span></span>
+          </div>
+        </div>
+      </div>
+      <button class="map-modal-close" id="mapModalClose" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="map-modal-iframe-wrap" id="mapModalIframeWrap">
+      <div class="map-loading" id="mapLoading">
+        <div class="map-loading-spin"></div>
+        <span>Memuat peta…</span>
+      </div>
+      <iframe id="mapModalIframe" src="" title="Peta Lokasi Faskes" allowfullscreen loading="lazy"
+              style="opacity:0;transition:opacity .3s ease"
+              onload="this.style.opacity='1';document.getElementById('mapLoading').style.display='none'">
+      </iframe>
+    </div>
+    <div class="map-modal-foot">
+      <span class="map-modal-kode" id="mapModalKode">—</span>
+      <div class="map-modal-foot-btns">
+        <button class="map-open-btn map-open-gmaps" id="mapOpenGmaps">
+          <i class="fa-solid fa-map-location-dot"></i> Buka Google Maps
+        </button>
+        <button class="map-open-btn map-open-dir" id="mapOpenDir">
+          <i class="fa-solid fa-diamond-turn-right"></i> Petunjuk Arah
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════
+   MAP MODAL — event delegation via data-attributes
+   Google Maps Embed mode=search — no API key needed
+══════════════════════════════════════════════ */
+const typeIconsModal = {
+  RS:        { icon:'fa-hospital',                     color:'linear-gradient(135deg,#e63946,#c1121f)' },
+  Klinik:    { icon:'fa-kit-medical',                  color:'linear-gradient(135deg,#006db3,#009FE3)' },
+  Puskesmas: { icon:'fa-house-medical',                color:'linear-gradient(135deg,#2a9d8f,#1d7d72)' },
+  Dokter:    { icon:'fa-user-doctor',                  color:'linear-gradient(135deg,#f77f00,#e06200)' },
+  Apotek:    { icon:'fa-prescription-bottle-medical',  color:'linear-gradient(135deg,#7209b7,#560bad)' },
+  Optik:     { icon:'fa-glasses',                      color:'linear-gradient(135deg,#06d6a0,#05b386)' },
+};
+
+const wilayahLabel = {
+  siantar:    'Pematangsiantar Sumatera Utara',
+  simalungun: 'Kabupaten Simalungun Sumatera Utara',
+  toba:       'Kabupaten Toba Sumatera Utara',
+  samosir:    'Kabupaten Samosir Sumatera Utara',
+};
+
+function getActiveWilayah() {
+  const t = document.querySelector('.fn-tab.active');
+  return t ? t.dataset.panel : 'siantar';
+}
+
+function openMapModal(item) {
+  const overlay  = document.getElementById('mapModalOverlay');
+  const iframe   = document.getElementById('mapModalIframe');
+  const loading  = document.getElementById('mapLoading');
+  const ico      = document.getElementById('mapModalIco');
+  const ti       = typeIconsModal[item.jenis] || typeIconsModal['Klinik'];
+  const suffix   = wilayahLabel[getActiveWilayah()] || 'Sumatera Utara';
+  const query    = `${item.nama} ${item.alamat} ${suffix}`;
+  const enc      = encodeURIComponent(query);
+
+  /* Header */
+  document.getElementById('mapModalTitle').textContent   = item.nama;
+  document.getElementById('mapModalJenis').textContent   = item.jenis;
+  document.getElementById('mapModalKec').textContent     = item.kec;
+  document.getElementById('mapModalAlamat').textContent  = item.alamat;
+  document.getElementById('mapModalKode').textContent    = 'Kode: ' + item.kode;
+  ico.innerHTML        = `<i class="fa-solid ${ti.icon}"></i>`;
+  ico.style.background = ti.color;
+
+  /* Footer buttons — open Google Maps in new tab */
+  const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${enc}`;
+  const dirUrl   = `https://www.google.com/maps/dir/?api=1&destination=${enc}`;
+  document.getElementById('mapOpenGmaps').onclick = () => window.open(gmapsUrl, '_blank');
+  document.getElementById('mapOpenDir').onclick   = () => window.open(dirUrl,   '_blank');
+
+  /* Reset + load Google Maps embed (search mode, no API key) */
+  iframe.style.opacity  = '0';
+  loading.style.display = 'flex';
+  iframe.src = '';
+  iframe.src = `https://maps.google.com/maps?q=${enc}&output=embed&z=16&hl=id`;
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMapModal() {
+  const overlay = document.getElementById('mapModalOverlay');
+  const iframe  = document.getElementById('mapModalIframe');
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+  setTimeout(() => { iframe.src = ''; }, 300);
+}
+
+/* ── Event delegation: catch clicks on .fcard-loc-btn and .td-loc-btn ── */
+document.addEventListener('click', function(e) {
+  const btn = e.target.closest('.fcard-loc-btn, .td-loc-btn');
+  if (!btn) return;
+  const item = {
+    kode:   btn.dataset.kode   || '',
+    nama:   btn.dataset.nama   || '',
+    jenis:  btn.dataset.jenis  || '',
+    kec:    btn.dataset.kec    || '',
+    alamat: btn.dataset.alamat || '',
+  };
+  openMapModal(item);
+});
+
+/* ── Modal close controls ── */
+document.getElementById('mapModalClose').addEventListener('click', closeMapModal);
+document.getElementById('mapModalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeMapModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && document.getElementById('mapModalOverlay').classList.contains('open')) {
+    closeMapModal();
+  }
+});
+</script>
 
 </body>
 </html>
