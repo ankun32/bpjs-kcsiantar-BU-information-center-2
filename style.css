@@ -440,6 +440,163 @@ section[id] { scroll-margin-top: 64px; }
 }
 .btn-hero-outline:hover { background: rgba(255,255,255,.2); transform: translateY(-3px); }
 
+/* ── HERO SOCIAL MEDIA BUTTONS ── */
+.hero-social {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .85rem;
+  margin-bottom: var(--sp-lg);
+  animation: hero-fade-up .8s ease .4s both;
+}
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-social-label {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.hero-social-label::before,
+.hero-social-label::after {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: rgba(255,255,255,.25);
+}
+
+.hero-social-btns {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Base social button */
+.hsocial-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  padding: .6rem 1.15rem .6rem .85rem;
+  border-radius: var(--r-full);
+  border: 1.5px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: rgba(255,255,255,.9);
+  text-decoration: none;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease !important;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Shimmer sweep on hover */
+.hsocial-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,.12) 50%,
+    transparent 100%
+  );
+  transition: left .4s ease !important;
+}
+.hsocial-btn:hover::before { left: 160%; }
+
+.hsocial-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  border-color: rgba(255,255,255,.45);
+  background: rgba(255,255,255,.14);
+}
+.hsocial-btn:active { transform: translateY(-1px) scale(1.01); }
+
+/* SVG logo icon */
+.hsocial-logo {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  transition: transform .25s ease !important;
+}
+.hsocial-btn:hover .hsocial-logo { transform: scale(1.12) rotate(-4deg); }
+
+/* Text labels */
+.hsocial-name {
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .01em;
+  white-space: nowrap;
+}
+.hsocial-handle {
+  font-size: .68rem;
+  font-weight: 500;
+  color: rgba(255,255,255,.6);
+  white-space: nowrap;
+}
+
+/* ── Per-platform accent colors on hover ── */
+
+/* Instagram — pink/purple gradient */
+.hsocial-ig:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(193,53,132,.45),
+    rgba(131,58,180,.45),
+    rgba(253,170,28,.25)
+  );
+  border-color: rgba(253,170,28,.5);
+  box-shadow: 0 8px 28px rgba(193,53,132,.35);
+}
+.hsocial-ig:hover .hsocial-name { color: #ffd4ef; }
+
+/* TikTok — dark with cyan/red */
+.hsocial-tt:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0,0,0,.55),
+    rgba(105,201,208,.2)
+  );
+  border-color: rgba(105,201,208,.5);
+  box-shadow: 0 8px 28px rgba(105,201,208,.3), 3px 3px 0 rgba(255,0,80,.25);
+}
+.hsocial-tt:hover .hsocial-name { color: #69c9d0; }
+
+/* YouTube — red */
+.hsocial-yt:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255,0,0,.4),
+    rgba(180,0,0,.3)
+  );
+  border-color: rgba(255,80,80,.55);
+  box-shadow: 0 8px 28px rgba(255,0,0,.3);
+}
+.hsocial-yt:hover .hsocial-name { color: #ffb3b3; }
+
+/* Light theme adjustments */
+[data-theme="light"] .hsocial-btn {
+  border-color: rgba(0,0,0,.12);
+  background: rgba(0,0,0,.06);
+  color: rgba(0,0,0,.85);
+}
+[data-theme="light"] .hsocial-handle { color: rgba(0,0,0,.45); }
+[data-theme="light"] .hero-social-label { color: rgba(0,0,0,.4); }
+[data-theme="light"] .hero-social-label::before,
+[data-theme="light"] .hero-social-label::after { background: rgba(0,0,0,.15); }
+[data-theme="light"] .hsocial-btn:hover { border-color: rgba(255,255,255,.6); background: rgba(0,0,0,.12); }
+
 .hero-stats {
   display: inline-flex; align-items: center; gap: var(--sp-lg);
   background: rgba(255,255,255,.08);
@@ -1248,6 +1405,11 @@ a:focus-visible, button:focus-visible {
   .hero-stats { gap: .75rem; padding: .8rem 1rem; }
   .hero-cta { flex-direction: column; align-items: center; }
   .btn-hero-primary, .btn-hero-outline { width: 100%; max-width: 280px; justify-content: center; }
+  /* Social buttons mobile */
+  .hero-social-btns { gap: .55rem; }
+  .hsocial-btn { padding: .5rem .9rem .5rem .7rem; }
+  .hsocial-handle { display: none; }
+  .hsocial-name { font-size: .76rem; }
 
   .cards-grid    { grid-template-columns: 1fr; }
   .contact-grid  { grid-template-columns: repeat(2,1fr); }
