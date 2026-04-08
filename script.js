@@ -124,6 +124,16 @@ const i18n = {
     news2_desc : 'Butuh Informasi/Terkendala Pelayanan?',
     news3_title: 'Ayo Kita Semua Wajib Skrining',
     news3_desc : 'Serangkaian pemeriksaan medis yang bertujuan mendeteksi dini penyakit dan risiko kesehatan, bahkan sebelum gejala muncul.',
+
+    /* News baru — newsina & newsina1 */
+    ncat_baru       : 'Informasi',
+    badge_baru      : 'Terkini',
+    newsina_date    : 'Mei 2026',
+    newsina_title   : 'Informasi Terbaru BPJS Kesehatan',
+    newsina_desc    : 'Informasi terbaru seputar layanan dan administrasi kepesertaan BPJS Kesehatan KC Pematangsiantar.',
+    newsina1_date   : 'Mei 2026',
+    newsina1_title  : 'Update Layanan BPJS Kesehatan',
+    newsina1_desc   : 'Pembaruan informasi layanan administrasi kepesertaan Badan Usaha BPJS Kesehatan KC Pematangsiantar.',
     btn_readmore: 'Baca Selengkapnya',
 
     /* Seksi Galeri */
@@ -297,6 +307,16 @@ const i18n = {
     news2_desc : 'Need Information or Experiencing Service Issues?',
     news3_title: 'Everyone Must Get Health Screening',
     news3_desc : 'A series of medical examinations aimed at early detection of diseases and health risks, even before symptoms appear.',
+
+    /* New news — newsina & newsina1 */
+    ncat_baru       : 'Information',
+    badge_baru      : 'Latest',
+    newsina_date    : 'May 2026',
+    newsina_title   : 'Latest BPJS Kesehatan Information',
+    newsina_desc    : 'Latest information about services and membership administration of BPJS Kesehatan Branch Pematangsiantar.',
+    newsina1_date   : 'May 2026',
+    newsina1_title  : 'BPJS Kesehatan Service Update',
+    newsina1_desc   : 'Updated information on membership administration services for Business Entities at BPJS Kesehatan Branch Pematangsiantar.',
     btn_readmore: 'Read More',
 
     /* Gallery Section */
