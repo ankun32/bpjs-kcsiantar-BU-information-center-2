@@ -29,10 +29,16 @@ const i18n = {
     nav_home   : 'Beranda',
     nav_layanan: 'Informasi Layanan',
     nav_panduan: 'Panduan eDabu',
+    nav_registrasi: 'Registrasi BU Baru',
     nav_news   : "What's New",
     nav_gallery: 'Galeri',
     nav_contact: 'Contact',
     nav_lokasi : 'Lokasi',
+
+    /* Banner Registrasi Badan Usaha Baru */
+    regbanner_title: 'Badan Usaha Anda Baru Berdiri?',
+    regbanner_desc : 'Ikuti panduan lengkap registrasi Badan Usaha baru: syarat dokumen (NIB, NPWP, KTP &amp; KK pekerja), 6 berkas pendaftaran yang bisa diunduh langsung, alur langkah demi langkah, hingga ketentuan penting yang wajib diketahui.',
+    regbanner_btn  : 'Lihat Panduan Registrasi',
 
     /* Hero */
     hero_badge : 'Resmi &amp; Terpercaya',
@@ -212,10 +218,16 @@ const i18n = {
     nav_home   : 'Home',
     nav_layanan: 'Services',
     nav_panduan: 'eDabu Guides',
+    nav_registrasi: 'New Company Registration',
     nav_news   : "What's New",
     nav_gallery: 'Gallery',
     nav_contact: 'Contact',
     nav_lokasi : 'Location',
+
+    /* New Company Registration Banner */
+    regbanner_title: 'Is Your Company Newly Established?',
+    regbanner_desc : 'Follow the complete guide to registering a new Company: required documents (Business ID/NIB, Tax ID/NPWP, employee ID &amp; family cards), 6 downloadable registration forms, a step-by-step process, and key rules you need to know.',
+    regbanner_btn  : 'View Registration Guide',
 
     /* Hero */
     hero_badge : 'Official &amp; Trusted',
