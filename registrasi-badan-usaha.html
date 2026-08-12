@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panduan Registrasi Badan Usaha Baru – BPJS Kesehatan KC Pematangsiantar</title>
+  <meta name="description" content="Panduan lengkap registrasi Badan Usaha baru ke BPJS Kesehatan KC Pematangsiantar: syarat, berkas pendaftaran, alur, dan ketentuan penting."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="registrasi-badan-usaha.css"/>
+  <link rel="icon" type="image/png" href="files/photos/siantar.png"/>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     NAVBAR (identik dengan index.html)
+════════════════════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+
+    <a href="index.html#beranda" class="nav-brand">
+      <img src="files/photos/logo-bpjs.png" alt="Logo BPJS Kesehatan" class="brand-img"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+      <div class="brand-logo-fallback" style="display:none">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+      <div class="brand-text">
+        <span class="brand-main">BPJS Kesehatan</span>
+        <span class="brand-sub">KC Pematangsiantar</span>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#beranda" class="nav-link">Beranda</a></li>
+      <li><a href="index.html#layanan" class="nav-link">Informasi Layanan</a></li>
+      <li><a href="index.html#panduan" class="nav-link">Panduan eDabu</a></li>
+      <li><a href="registrasi-badan-usaha.html" class="nav-link active">Registrasi BU Baru</a></li>
+      <li><a href="index.html#news" class="nav-link">What's New</a></li>
+      <li class="nav-dropdown">
+        <a href="faskes.html" class="nav-link nav-link-dropdown">
+          Faskes <i class="fa-solid fa-chevron-down nav-dd-icon"></i>
+        </a>
+        <div class="nav-dd-menu">
+          <div class="nav-dd-header">Direktori Faskes BPJS</div>
+          <a href="faskes.html?tab=siantar" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#e63946,#c1121f)"><i class="fa-solid fa-city"></i></div>
+            <div><div class="nav-dd-item-title">Kota Pematangsiantar</div><div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div></div>
+          </a>
+          <a href="faskes.html?tab=simalungun" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#2a9d8f,#1d7d72)"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div><div class="nav-dd-item-title">Kab. Simalungun</div><div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div></div>
+          </a>
+          <a href="faskes.html?tab=toba" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#f77f00,#e06200)"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div><div class="nav-dd-item-title">Kab. Toba</div><div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div></div>
+          </a>
+          <a href="faskes.html?tab=samosir" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#7209b7,#560bad)"><i class="fa-solid fa-map-location-dot"></i></div>
+            <div><div class="nav-dd-item-title">Kab. Samosir</div><div class="nav-dd-item-sub">RS, Klinik, Puskesmas</div></div>
+          </a>
+          <a href="faskes.html?tab=mobilejkn" class="nav-dd-item">
+            <div class="nav-dd-item-icon" style="background:linear-gradient(135deg,#006db3,#009FE3)"><i class="fa-solid fa-mobile-screen"></i></div>
+            <div><div class="nav-dd-item-title">Panduan Mobile JKN</div><div class="nav-dd-item-sub">Cara penggunaan aplikasi</div></div>
+          </a>
+        </div>
+      </li>
+      <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+      <li><a href="index.html#lokasi" class="nav-link">Lokasi</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-switcher" id="langSwitcher">
+        <button class="lang-btn active" data-lang="id">
+          <span class="lang-flag">🇮🇩</span><span class="lang-code">ID</span>
+        </button>
+        <span class="lang-divider">|</span>
+        <button class="lang-btn" data-lang="en">
+          <span class="lang-flag">🇬🇧</span><span class="lang-code">EN</span>
+        </button>
+      </div>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="toggle-track">
+          <span class="toggle-thumb">
+            <i class="fa-solid fa-sun  icon-light"></i>
+            <i class="fa-solid fa-moon icon-dark"></i>
+          </span>
+        </span>
+      </button>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════
+     BREADCRUMB
+════════════════════════════════════ -->
+<div class="rb-breadcrumb">
+  <div class="rb-breadcrumb-inner">
+    <a href="index.html#beranda"><i class="fa-solid fa-house"></i> Beranda</a>
+    <i class="fa-solid fa-chevron-right"></i>
+    <span class="rb-breadcrumb-current">Registrasi Badan Usaha Baru</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="rb-hero">
+  <div class="rb-hero-inner">
+    <div>
+      <div class="rb-hero-eyebrow"><span class="eyebrow-dot"></span> Panduan Resmi Pendaftaran</div>
+      <h1 class="rb-hero-title">Registrasi <span class="accent">Badan Usaha Baru</span> ke BPJS Kesehatan</h1>
+      <p class="rb-hero-desc">
+        Panduan lengkap bagi perusahaan yang baru pertama kali mendaftarkan badan usahanya sebagai
+        Pemberi Kerja peserta Jaminan Kesehatan Nasional (JKN) — mulai dari syarat dokumen,
+        formulir yang harus diunduh, alur pendaftaran, hingga ketentuan penting yang wajib diketahui.
+      </p>
+      <div class="rb-hero-cta">
+        <a href="#berkas" class="btn btn-hero-primary">
+          <i class="fa-solid fa-download"></i> <span>Unduh Berkas Pendaftaran</span>
+        </a>
+        <a href="#alur" class="btn btn-hero-outline">
+          <i class="fa-solid fa-route"></i> <span>Lihat Alur Pendaftaran</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="rb-hero-panel">
+      <div class="rb-hero-panel-title"><i class="fa-solid fa-clipboard-check"></i> Ringkasan Cepat</div>
+      <div class="rb-hero-stat">
+        <i class="fa-solid fa-folder-open"></i>
+        <div><b>6 Berkas</b><span>Formulir &amp; dokumen syarat yang wajib diunduh</span></div>
+      </div>
+      <div class="rb-hero-stat">
+        <i class="fa-solid fa-id-card"></i>
+        <div><b>4 Syarat Utama</b><span>NIB, NPWP, KTP &amp; KK Pekerja</span></div>
+      </div>
+      <div class="rb-hero-stat">
+        <i class="fa-solid fa-calendar-check"></i>
+        <div><b>Aktif Bulan Berikutnya</b><span>Pendaftaran bulan ini berlaku mulai bulan depan</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     SUB-NAV
+════════════════════════════════════ -->
+<div class="rb-subnav">
+  <div class="rb-subnav-inner">
+    <a href="#syarat">Syarat Badan Usaha</a>
+    <a href="#berkas">Berkas Pendaftaran</a>
+    <a href="#alur">Alur Pendaftaran</a>
+    <a href="#ketentuan">Ketentuan Penting</a>
+    <a href="#aturan">Ketentuan Umum</a>
+    <a href="#faq">Tanya Jawab</a>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     SYARAT BADAN USAHA
+════════════════════════════════════ -->
+<section class="section-wrap rb-section" id="syarat">
+  <div class="section-container">
+    <div class="section-header reveal-up">
+      <div class="section-eyebrow"><i class="fa-solid fa-list-check"></i> <span>Persyaratan</span></div>
+      <h2 class="section-title">Syarat Badan Usaha</h2>
+      <p class="section-desc">4 dokumen utama yang wajib disiapkan perusahaan sebelum mengajukan pendaftaran sebagai Badan Usaha peserta JKN-KIS.</p>
+    </div>
+
+    <div class="rb-req-grid">
+      <div class="rb-req-card reveal-up" data-delay="0">
+        <div class="rb-req-icon" style="--cc:#006db3"><i class="fa-solid fa-building-shield"></i></div>
+        <h3 class="rb-req-title">NIB Perusahaan</h3>
+        <p class="rb-req-desc">Nomor Induk Berusaha yang diterbitkan melalui sistem OSS sebagai identitas legal badan usaha.</p>
+      </div>
+      <div class="rb-req-card reveal-up" data-delay="80">
+        <div class="rb-req-icon" style="--cc:#00a86b"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <h3 class="rb-req-title">NPWP Perusahaan</h3>
+        <p class="rb-req-desc">Nomor Pokok Wajib Pajak atas nama badan usaha, digunakan untuk administrasi iuran.</p>
+      </div>
+      <div class="rb-req-card reveal-up" data-delay="160">
+        <div class="rb-req-icon" style="--cc:#f77f00"><i class="fa-solid fa-id-card"></i></div>
+        <h3 class="rb-req-title">KTP Pekerja</h3>
+        <p class="rb-req-desc">Fotokopi/scan KTP setiap pekerja yang akan didaftarkan sebagai peserta JKN-KIS segmen PPU.</p>
+      </div>
+      <div class="rb-req-card reveal-up" data-delay="240">
+        <div class="rb-req-icon" style="--cc:#9b5de5"><i class="fa-solid fa-people-roof"></i></div>
+        <h3 class="rb-req-title">Kartu Keluarga Pekerja</h3>
+        <p class="rb-req-desc">Fotokopi/scan Kartu Keluarga setiap pekerja untuk pendaftaran anggota keluarga yang ditanggung.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; display:flex; justify-content:center;">
+      <a href="files/registrasi-badan-usaha/SYARAT BADAN USAHA 2.pdf" target="_blank" class="btn btn-primary reveal-up">
+        <i class="fa-solid fa-eye"></i> Lihat Daftar Lengkap Syarat Badan Usaha (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     BERKAS PENDAFTARAN (6 FILE)
+════════════════════════════════════ -->
+<section class="section-wrap rb-section alt" id="berkas">
+  <div class="section-container">
+    <div class="section-header reveal-up">
+      <div class="section-eyebrow"><i class="fa-solid fa-file-arrow-down"></i> <span>Unduh Dokumen</span></div>
+      <h2 class="section-title">Berkas Pendaftaran (6 Dokumen)</h2>
+      <p class="section-desc">Unduh, isi dengan lengkap, dan bubuhkan tanda tangan/cap perusahaan pada seluruh formulir berikut sebelum diserahkan.</p>
+    </div>
+
+    <div class="rb-file-grid">
+
+      <div class="rb-file-card reveal-up" data-delay="0">
+        <div class="rb-file-icon xls"><i class="fa-solid fa-file-excel"></i></div>
+        <div class="rb-file-info">
+          <div class="rb-file-name">Form BU Regis.xls</div>
+          <div class="rb-file-desc">Formulir 1 — Data Pendaftaran Badan Usaha</div>
+        </div>
+        <a href="files/registrasi-badan-usaha/Form BU Regis.xls" download class="rb-file-dl" aria-label="Unduh Form BU Regis.xls">
+          <i class="fa-solid fa-download"></i>
+        </a>
+      </div>
+
+      <div class="rb-file-card reveal-up" data-delay="60">
+        <div class="rb-file-icon xls"><i class="fa-solid fa-file-excel"></i></div>
+        <div class="rb-file-info">
+          <div class="rb-file-name">Form 2 BU Regis.xls</div>
+          <div class="rb-file-desc">Formulir 2 — Data Pendaftaran Pekerja</div>
+        </div>
+        <a href="files/registrasi-badan-usaha/Form 2 BU Regis.xls" download class="rb-file-dl" aria-label="Unduh Form 2 BU Regis.xls">
+          <i class="fa-solid fa-download"></i>
+        </a>
+      </div>
+
+      <div class="rb-file-card reveal-up" data-delay="120">
+        <div class="rb-file-icon xls"><i class="fa-solid fa-file-excel"></i></div>
+        <div class="rb-file-info">
+          <div class="rb-file-name">DAFTAR GAJI DAN FASKES I.xls</div>
+          <div class="rb-file-desc">Daftar Gaji Pekerja &amp; Pemilihan Fasilitas Kesehatan Tingkat I</div>
+        </div>
+        <a href="files/registrasi-badan-usaha/DAFTAR GAJI DAN FASKES I.xls" download class="rb-file-dl" aria-label="Unduh Daftar Gaji dan Faskes I.xls">
+          <i class="fa-solid fa-download"></i>
+        </a>
+      </div>
+
+      <div class="rb-file-card reveal-up" data-delay="180">
+        <div class="rb-file-icon doc"><i class="fa-solid fa-file-word"></i></div>
+        <div class="rb-file-info">
+          <div class="rb-file-name">Form 4 BU Regis.doc</div>
+          <div class="rb-file-desc">Formulir 4 — Data Tambahan / Perubahan Badan Usaha</div>
+        </div>
+        <a href="files/registrasi-badan-usaha/Form 4 BU Regis.doc" download class="rb-file-dl" aria-label="Unduh Form 4 BU Regis.doc">
+          <i class="fa-solid fa-download"></i>
+        </a>
+      </div>
+
+      <div class="rb-file-card reveal-up" data-delay="240">
+        <div class="rb-file-icon doc"><i class="fa-solid fa-file-word"></i></div>
+        <div class="rb-file-info">
+          <div class="rb-file-name">Pakta Integritas Edabu.docx</div>
+          <div class="rb-file-desc">Surat Pernyataan Pakta Integritas penggunaan aplikasi eDabu</div>
+        </div>
+        <a href="files/registrasi-badan-usaha/Pakta Integritas Edabu.docx" download class="rb-file-dl" aria-label="Unduh Pakta Integritas Edabu.docx">
+          <i class="fa-solid fa-download"></i>
+        </a>
+      </div>
+
+      <div class="rb-file-card reveal-up" data-delay="300">
+        <div class="rb-file-icon pdf"><i class="fa-solid fa-file-pdf"></i></div>
+        <div class="rb-file-info">
+          <div class="rb-file-name">SYARAT BADAN USAHA 2.pdf</div>
+          <div class="rb-file-desc">Checklist &amp; penjelasan lengkap syarat dokumen Badan Usaha</div>
+        </div>
+        <a href="files/registrasi-badan-usaha/SYARAT BADAN USAHA 2.pdf" target="_blank" class="rb-file-dl" aria-label="Lihat Syarat Badan Usaha 2.pdf">
+          <i class="fa-solid fa-eye"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     ALUR PENDAFTARAN
+════════════════════════════════════ -->
+<section class="section-wrap rb-section" id="alur">
+  <div class="section-container">
+    <div class="section-header reveal-up">
+      <div class="section-eyebrow"><i class="fa-solid fa-route"></i> <span>Langkah demi Langkah</span></div>
+      <h2 class="section-title">Alur Pendaftaran Badan Usaha</h2>
+      <p class="section-desc">Ikuti 6 tahapan berikut secara berurutan agar proses pendaftaran badan usaha Anda berjalan lancar.</p>
+    </div>
+
+    <div class="rb-stepper">
+
+      <div class="rb-step reveal-up">
+        <div class="rb-step-num-col"><div class="rb-step-num">1</div><div class="rb-step-line"></div></div>
+        <div class="rb-step-body">
+          <div class="rb-step-title">Siapkan Syarat Badan Usaha <span class="rb-tag">Persiapan</span></div>
+          <div class="rb-step-desc">Kumpulkan 4 dokumen syarat utama: NIB Perusahaan, NPWP Perusahaan, KTP Pekerja, dan Kartu Keluarga Pekerja dalam bentuk scan/foto yang jelas.</div>
+        </div>
+      </div>
+
+      <div class="rb-step reveal-up">
+        <div class="rb-step-num-col"><div class="rb-step-num">2</div><div class="rb-step-line"></div></div>
+        <div class="rb-step-body">
+          <div class="rb-step-title">Unduh &amp; Isi 6 Berkas Pendaftaran <span class="rb-tag">Formulir</span></div>
+          <div class="rb-step-desc">
+            Unduh seluruh formulir pada bagian <a href="#berkas" style="color:var(--c-primary); font-weight:700;">Berkas Pendaftaran</a> di atas, lalu isi dengan data yang benar dan lengkap.
+            <ul>
+              <li>Form BU Regis &amp; Form 2 BU Regis — data perusahaan dan pekerja</li>
+              <li>Daftar Gaji dan Faskes I — upah pekerja serta pemilihan fasilitas kesehatan tingkat I</li>
+              <li>Form 4 BU Regis &amp; Pakta Integritas Edabu — kelengkapan administrasi eDabu</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="rb-step reveal-up">
+        <div class="rb-step-num-col"><div class="rb-step-num">3</div><div class="rb-step-line"></div></div>
+        <div class="rb-step-body">
+          <div class="rb-step-title">Periksa Kesesuaian Data Upah <span class="rb-tag">Verifikasi Internal</span></div>
+          <div class="rb-step-desc">Pastikan nominal gaji yang dilaporkan pada formulir Daftar Gaji sudah sesuai dengan ketentuan pelaporan upah — lihat bagian <a href="#ketentuan" style="color:var(--c-primary); font-weight:700;">Ketentuan Penting</a> di bawah.</div>
+        </div>
+      </div>
+
+      <div class="rb-step reveal-up">
+        <div class="rb-step-num-col"><div class="rb-step-num">4</div><div class="rb-step-line"></div></div>
+        <div class="rb-step-body">
+          <div class="rb-step-title">Ajukan Pendaftaran <span class="rb-tag">Pengajuan</span></div>
+          <div class="rb-step-desc">Serahkan seluruh berkas yang telah diisi beserta syarat badan usaha ke Kantor Cabang/Kabupaten BPJS Kesehatan terdekat, atau melalui aplikasi eDabu / Sentra Layanan Administrasi (Selaras) sesuai arahan petugas.</div>
+        </div>
+      </div>
+
+      <div class="rb-step reveal-up">
+        <div class="rb-step-num-col"><div class="rb-step-num">5</div><div class="rb-step-line"></div></div>
+        <div class="rb-step-body">
+          <div class="rb-step-title">Verifikasi &amp; Proses Administrasi <span class="rb-tag">Proses BPJS</span></div>
+          <div class="rb-step-desc">Petugas BPJS Kesehatan akan memverifikasi kelengkapan dan kebenaran data. Badan usaha akan memperoleh Nomor Pendaftaran/Virtual Account untuk pembayaran iuran pertama.</div>
+        </div>
+      </div>
+
+      <div class="rb-step reveal-up">
+        <div class="rb-step-num-col"><div class="rb-step-num">6</div></div>
+        <div class="rb-step-body">
+          <div class="rb-step-title">Aktivasi Kepesertaan <span class="rb-tag">Selesai</span></div>
+          <div class="rb-step-desc">Setelah pembayaran iuran pertama dikonfirmasi, kepesertaan pekerja aktif mulai berlaku pada bulan berikutnya (lihat catatan waktu berlaku pada bagian Ketentuan Penting).</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     KETENTUAN PENTING (notice callouts)
+════════════════════════════════════ -->
+<section class="section-wrap rb-section alt" id="ketentuan">
+  <div class="section-container">
+    <div class="section-header reveal-up">
+      <div class="section-eyebrow"><i class="fa-solid fa-circle-exclamation"></i> <span>Wajib Diperhatikan</span></div>
+      <h2 class="section-title">Ketentuan Penting</h2>
+      <p class="section-desc">Beberapa hal krusial yang sering menjadi pertanyaan dan wajib dipahami sebelum mengajukan pendaftaran.</p>
+    </div>
+
+    <div class="rb-notice-grid">
+
+      <div class="rb-notice info reveal-up">
+        <i class="fa-solid fa-money-bill-wave"></i>
+        <div>
+          <div class="rb-notice-title">Batas Minimal Upah yang Dilaporkan</div>
+          <div class="rb-notice-body">Upah yang dilaporkan untuk perhitungan iuran <strong>minimal setara dengan Upah Minimum Kabupaten/Kota (UMK)</strong> tempat badan usaha tersebut berdiri/berdomisili.</div>
+        </div>
+      </div>
+
+      <div class="rb-notice info reveal-up">
+        <i class="fa-solid fa-sack-dollar"></i>
+        <div>
+          <div class="rb-notice-title">Komponen Upah yang Dilaporkan</div>
+          <div class="rb-notice-body">Upah yang dilaporkan terdiri dari <strong>gaji pokok ditambah tunjangan tetap</strong> yang diterima pekerja setiap bulan, sesuai dengan struktur penggajian di perusahaan.</div>
+        </div>
+      </div>
+
+      <div class="rb-notice info reveal-up">
+        <i class="fa-solid fa-hospital"></i>
+        <div>
+          <div class="rb-notice-title">Pemilihan Fasilitas Kesehatan (Faskes) Tingkat I</div>
+          <div class="rb-notice-body">Faskes I untuk setiap pekerja dipilih dan dicantumkan pada formulir Daftar Gaji dan Faskes I. Daftar Faskes I yang tersedia dapat dilihat pada halaman <a href="faskes.html">Direktori Faskes</a>.</div>
+        </div>
+      </div>
+
+      <div class="rb-notice info reveal-up">
+        <i class="fa-solid fa-calendar-days"></i>
+        <div>
+          <div class="rb-notice-title">Waktu Mulai Berlaku Kepesertaan</div>
+          <div class="rb-notice-body">Jika pendaftaran badan usaha diajukan pada bulan berjalan, maka kepesertaan <strong>baru mulai berlaku pada bulan berikutnya</strong>. Ketentuan waktu berlaku yang sama juga berlaku untuk penerbitan Sertifikat Badan Usaha.</div>
+        </div>
+      </div>
+
+      <div class="rb-notice critical reveal-up" style="grid-column: 1 / -1;">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <div class="rb-notice-title">Syarat Penerbitan Sertifikat Badan Usaha</div>
+          <div class="rb-notice-body">Sertifikat Badan Usaha hanya dapat diterbitkan apabila badan usaha telah <strong>mendaftarkan 100% pekerjanya</strong> ke dalam program JKN-KIS atas nama perusahaan, sesuai dengan prinsip kepesertaan wajib dan gotong royong dalam Jaminan Kesehatan Nasional.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     KETENTUAN UMUM (regulasi)
+════════════════════════════════════ -->
+<section class="section-wrap rb-section" id="aturan">
+  <div class="section-container">
+    <div class="section-header reveal-up">
+      <div class="section-eyebrow"><i class="fa-solid fa-scale-balanced"></i> <span>Dasar Ketentuan</span></div>
+      <h2 class="section-title">Ketentuan Umum Pendaftaran Badan Usaha</h2>
+      <p class="section-desc">Ringkasan ketentuan kepesertaan Badan Usaha dalam program Jaminan Kesehatan Nasional (JKN-KIS).</p>
+    </div>
+
+    <div class="rb-rules reveal-up">
+      <div class="rb-rules-list">
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Kepesertaan bersifat wajib.</strong> Setiap pemberi kerja/badan usaha wajib mendaftarkan dirinya dan seluruh pekerjanya sebagai peserta Jaminan Kesehatan Nasional.</p>
+        </div>
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Pendaftaran mencakup seluruh pekerja.</strong> Badan usaha wajib mendaftarkan seluruh pekerja beserta anggota keluarganya (istri/suami dan maksimal 3 anak) sebagai peserta PPU (Pekerja Penerima Upah).</p>
+        </div>
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Iuran ditanggung bersama.</strong> Iuran dibayarkan melalui kontribusi pemberi kerja dan pekerja, dipotong langsung dari upah setiap bulan sesuai ketentuan yang berlaku.</p>
+        </div>
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Dokumen legalitas harus valid.</strong> NIB dan NPWP yang digunakan harus aktif dan terdaftar atas nama badan usaha yang bersangkutan, bukan atas nama pribadi.</p>
+        </div>
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Data kependudukan harus sesuai.</strong> KTP dan Kartu Keluarga pekerja yang dilampirkan harus sesuai dengan data kependudukan yang berlaku dan tidak sedang dalam proses perubahan data.</p>
+        </div>
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Perubahan data wajib dilaporkan.</strong> Setiap perubahan jumlah pekerja, upah, atau data perusahaan wajib dilaporkan kembali melalui aplikasi eDabu agar iuran tetap sesuai.</p>
+        </div>
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Sanksi administratif.</strong> Badan usaha yang tidak memenuhi kewajiban pendaftaran dan pembayaran iuran dapat dikenakan sanksi administratif berupa tidak diberikannya layanan publik tertentu, sesuai peraturan yang berlaku.</p>
+        </div>
+        <div class="rb-rule-item">
+          <i class="fa-solid fa-circle-check"></i>
+          <p><strong>Pendampingan tersedia.</strong> Badan usaha dapat berkonsultasi langsung ke Kantor Cabang/Kabupaten BPJS Kesehatan terdekat atau menghubungi hotline 165 apabila mengalami kendala saat proses pendaftaran.</p>
+        </div>
+      </div>
+
+      <div class="rb-rules-source">
+        <i class="fa-solid fa-book"></i> Ringkasan ini disusun berdasarkan ketentuan kepesertaan Jaminan Kesehatan Nasional (Peraturan Presiden tentang Jaminan Kesehatan beserta perubahannya), ketentuan perizinan berusaha melalui sistem OSS (Nomor Induk Berusaha), serta prosedur administrasi resmi BPJS Kesehatan. Untuk ketentuan terbaru dan paling akurat, badan usaha disarankan mengonfirmasi langsung ke Kantor Cabang/Kabupaten BPJS Kesehatan setempat atau laman resmi <strong>bpjs-kesehatan.go.id</strong>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FAQ
+════════════════════════════════════ -->
+<section class="section-wrap rb-section alt" id="faq">
+  <div class="section-container">
+    <div class="section-header reveal-up">
+      <div class="section-eyebrow"><i class="fa-solid fa-circle-question"></i> <span>Tanya Jawab</span></div>
+      <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+      <p class="section-desc">Jawaban singkat untuk pertanyaan umum seputar registrasi Badan Usaha baru.</p>
+    </div>
+
+    <div class="rb-faq reveal-up">
+
+      <div class="rb-faq-item open">
+        <button class="rb-faq-q">Berapa lama proses pendaftaran badan usaha sampai aktif? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="rb-faq-a">Setelah berkas lengkap diserahkan dan diverifikasi, kepesertaan akan mulai berlaku pada bulan berikutnya setelah bulan pendaftaran diajukan, bukan pada bulan yang sama.</div>
+      </div>
+
+      <div class="rb-faq-item">
+        <button class="rb-faq-q">Apakah semua pekerja wajib didaftarkan? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="rb-faq-a">Ya. Seluruh pekerja tetap maupun tidak tetap pada badan usaha wajib didaftarkan sebagai peserta JKN-KIS. Khusus untuk penerbitan Sertifikat Badan Usaha, syaratnya adalah 100% pekerja telah terdaftar atas nama perusahaan.</div>
+      </div>
+
+      <div class="rb-faq-item">
+        <button class="rb-faq-q">Bagaimana jika upah pekerja berbeda-beda di setiap divisi? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="rb-faq-a">Upah yang dilaporkan tetap harus sesuai dengan penerimaan riil masing-masing pekerja (gaji pokok + tunjangan tetap), dengan batas minimal pelaporan setara UMK Kabupaten/Kota tempat badan usaha berdiri.</div>
+      </div>
+
+      <div class="rb-faq-item">
+        <button class="rb-faq-q">Di mana saya bisa melihat pilihan Faskes Tingkat I? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="rb-faq-a">Daftar lengkap Fasilitas Kesehatan Tingkat I (Puskesmas, klinik, dokter praktik perorangan) dapat dilihat pada halaman <a href="faskes.html">Direktori Faskes</a> di navigasi utama situs ini.</div>
+      </div>
+
+      <div class="rb-faq-item">
+        <button class="rb-faq-q">Apakah formulir bisa diisi secara digital? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="rb-faq-a">Formulir berformat .xls dan .doc dapat diisi langsung di komputer sebelum dicetak, ditandatangani, dan dicap oleh pihak berwenang perusahaan sebelum diserahkan ke kantor BPJS Kesehatan.</div>
+      </div>
+
+      <div class="rb-faq-item">
+        <button class="rb-faq-q">Ke mana berkas pendaftaran diserahkan? <i class="fa-solid fa-chevron-down"></i></button>
+        <div class="rb-faq-a">Berkas dapat diserahkan langsung ke Kantor Cabang/Kabupaten BPJS Kesehatan terdekat sesuai domisili badan usaha, atau melalui layanan Selaras/eDabu sesuai arahan petugas. Lihat halaman <a href="index.html#lokasi">Lokasi Kantor</a> untuk alamat lengkap.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     CTA BAND
+════════════════════════════════════ -->
+<section class="section-wrap rb-section">
+  <div class="section-container">
+    <div class="rb-cta-band reveal-up">
+      <div>
+        <h3>Masih ada pertanyaan seputar pendaftaran?</h3>
+        <p>Tim kami siap membantu proses registrasi Badan Usaha Anda melalui kontak resmi atau kunjungan langsung ke kantor terdekat.</p>
+      </div>
+      <div class="rb-cta-band-actions">
+        <a href="index.html#contact" class="btn btn-hero-primary">
+          <i class="fa-brands fa-whatsapp"></i> Hubungi Kami
+        </a>
+        <a href="index.html#lokasi" class="btn btn-hero-outline">
+          <i class="fa-solid fa-map-location-dot"></i> Lokasi Kantor
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════
+     FOOTER (identik dengan index.html)
+════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-container">
+      <div class="footer-col footer-brand-col">
+        <div class="footer-brand">
+          <img src="files/photos/logo-bpjs.png" alt="BPJS" class="footer-logo-img"
+               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+          <div class="footer-logo-fallback" style="display:none"><i class="fa-solid fa-shield-heart"></i></div>
+          <div>
+            <div class="footer-name">BPJS Kesehatan</div>
+            <div class="footer-branch">KC Pematangsiantar</div>
+          </div>
+        </div>
+        <p class="footer-tagline">Melayani dengan sepenuh hati untuk Indonesia yang lebih sehat.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/bpjskesehatan" target="_blank" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/bpjskesehatan" target="_blank" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://twitter.com/BPJSKesehatanRI" target="_blank" class="social-btn" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.youtube.com/@BPJSKesehatanRI" target="_blank" class="social-btn" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Tautan Cepat</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#beranda">Beranda</a></li>
+          <li><a href="index.html#layanan">Informasi Layanan</a></li>
+          <li><a href="index.html#panduan">Panduan eDabu</a></li>
+          <li><a href="registrasi-badan-usaha.html">Registrasi Badan Usaha Baru</a></li>
+          <li><a href="index.html#contact">Contact Person</a></li>
+          <li><a href="index.html#lokasi">Lokasi Kantor</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Kontak</h4>
+        <ul class="footer-contact-list">
+          <li><i class="fa-solid fa-location-dot"></i><span>Jl. Perintis Kemerdekaan No. 7, Pematangsiantar</span></li>
+          <li><i class="fa-solid fa-phone"></i><span>165 (Hotline Gratis)</span></li>
+          <li><i class="fa-solid fa-clock"></i><span>Senin–Jumat: 09.00–15.00 WIB</span></li>
+          <li><i class="fa-solid fa-globe"></i><span>www.bpjs-kesehatan.go.id</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-container">
+      <p>&copy; <span id="year"></span> BPJS Kesehatan KC Pematangsiantar. Semua hak dilindungi.</p>
+      <p class="footer-made">Pusat Informasi Badan Usaha</p>
+    </div>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <i class="fa-solid fa-chevron-up"></i>
+</button>
+
+<script src="script.js"></script>
+<script src="registrasi-badan-usaha.js"></script>
+</body>
+</html>
