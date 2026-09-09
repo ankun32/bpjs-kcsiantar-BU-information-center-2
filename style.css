@@ -1340,3 +1340,101 @@ a:focus-visible, button:focus-visible {
   .btn-whatsapp { width: 100%; padding: .5rem .9rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 130px 130px 130px; }
 }
+
+/* ══════════════════════════════════════════════════
+   KELUARGA TAMBAHAN 1% — BROSUR & SYARAT BERKAS
+══════════════════════════════════════════════════ */
+.keltam-section { background: var(--bg); position: relative; overflow: hidden; }
+.keltam-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg,#006db3,#00a86b,#7dd0f0);
+}
+
+.keltam-wrap {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) 1fr;
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: stretch;
+}
+
+/* Brosur card */
+.keltam-brosur {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: var(--sh-md);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease !important;
+}
+.keltam-brosur:hover {
+  transform: translateY(-6px); box-shadow: var(--sh-lg); border-color: var(--border-hv);
+}
+.keltam-brosur-img-wrap {
+  position: relative; width: 100%; aspect-ratio: 4 / 5;
+  background: linear-gradient(135deg,#006db3,#009FE3);
+  overflow: hidden;
+}
+.keltam-brosur-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.keltam-img-fallback .keltam-brosur-img { display: none; }
+.keltam-img-fallback .keltam-brosur-img-wrap::after {
+  content: '\f0f6'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 2.6rem; color: rgba(255,255,255,.85);
+}
+.keltam-brosur-body { padding: var(--sp-md); display: flex; flex-direction: column; gap: .55rem; flex: 1; }
+.keltam-brosur-title { font-size: .95rem; font-weight: 700; color: var(--txt); line-height: 1.35; }
+.keltam-brosur-btn { margin-top: auto; align-self: flex-start; }
+
+/* Requirement columns */
+.keltam-req-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+.keltam-req-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--r-lg); padding: var(--sp-md);
+  box-shadow: var(--sh-md);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease !important;
+}
+.keltam-req-card:hover {
+  transform: translateY(-6px); box-shadow: var(--sh-lg); border-color: var(--border-hv);
+}
+.keltam-req-head { display: flex; align-items: flex-start; gap: .8rem; margin-bottom: .7rem; }
+.keltam-req-icon {
+  width: 46px; height: 46px; flex-shrink: 0;
+  background: color-mix(in srgb, var(--cc,#006db3) 13%, transparent);
+  color: var(--cc,#006db3);
+  border-radius: var(--r-md);
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+}
+.keltam-req-title { font-size: .95rem; font-weight: 700; color: var(--txt); line-height: 1.35; margin-top: .15rem; }
+.keltam-req-desc { font-size: .8rem; color: var(--txt-2); line-height: 1.6; margin-bottom: .8rem; }
+.keltam-req-list { display: flex; flex-direction: column; gap: .55rem; }
+.keltam-req-list li {
+  display: flex; align-items: flex-start; gap: .55rem;
+  font-size: .8rem; color: var(--txt-2); line-height: 1.55;
+}
+.keltam-req-list li i { color: var(--c-green); margin-top: .18rem; flex-shrink: 0; }
+
+.keltam-note {
+  margin-top: clamp(1.25rem, 3vw, 2rem);
+  display: flex; align-items: flex-start; gap: .6rem;
+  background: var(--notice-bg); border: 1px solid var(--notice-bdr);
+  color: var(--notice-c); border-radius: var(--r-md);
+  padding: .85rem 1.1rem; font-size: .8rem; line-height: 1.65;
+}
+.keltam-note i { margin-top: .15rem; flex-shrink: 0; }
+
+@media (max-width: 900px) {
+  .keltam-wrap { grid-template-columns: 1fr; }
+  .keltam-brosur { flex-direction: row; }
+  .keltam-brosur-img-wrap { width: 160px; aspect-ratio: 4/5; flex-shrink: 0; }
+  .keltam-brosur-body { justify-content: center; }
+}
+
+@media (max-width: 575px) {
+  .keltam-req-grid { grid-template-columns: 1fr; }
+  .keltam-brosur { flex-direction: column; }
+  .keltam-brosur-img-wrap { width: 100%; }
+}
