@@ -71,7 +71,7 @@ const i18n = {
     tag_formulir: 'Formulir',
     tag_manual  : 'Manual',
     btn_view    : 'Lihat / Unduh',
-    btn_download: 'Unduh',
+    btn_download: 'Unduh Berkas',
     card1_title: 'Tata Cara Penonaktifan Pekerja',
     card1_desc : 'Langkah-langkah menonaktifkan data pekerja melalui aplikasi eDabu secara benar dan tepat.',
     card2_title: 'Program REHAB Mandiri/Alih Segmen',
