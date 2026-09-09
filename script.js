@@ -152,9 +152,9 @@ const i18n = {
     gal4_cap: 'Pemberian Penghargaan PBPU Kolektif Kepada Badan Usaha Berkontribusi',
     gal5_cap: 'Sosialisasi Terhadap Badan Usaha',
     gal6_cap: 'Awarding Satya JKN Badan Usaha Terbaik Nasional',
-    gal8_cap: 'Kunjungan Edukasi ke Badan Usaha',
-    gal9_cap: 'Pertemuan Koordinasi Bersama Badan Usaha',
-    gal10_cap: 'Monitoring dan Evaluasi Kepesertaan Badan Usaha',
+    gal8_cap: 'Bootstrike Wasrik Nasional 2026',
+    gal9_cap: 'Bootstrike Wasrik Nasional 2026',
+    gal10_cap: 'Bootstrike Wasrik Nasional 2026',
 
     /* Seksi Keluarga Tambahan 1% */
     sec_keltam_tag  : 'Iuran Tambahan',
