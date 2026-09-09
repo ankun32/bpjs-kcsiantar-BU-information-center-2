@@ -1384,6 +1384,8 @@ a:focus-visible, button:focus-visible {
 .keltam-brosur-body { padding: var(--sp-md); display: flex; flex-direction: column; gap: .55rem; flex: 1; }
 .keltam-brosur-title { font-size: .95rem; font-weight: 700; color: var(--txt); line-height: 1.35; }
 .keltam-brosur-btn { margin-top: auto; align-self: flex-start; }
+.keltambu-brosur-btn { margin-top: auto; align-self: flex-start; }
+
 
 /* Requirement columns */
 .keltam-req-grid {
