@@ -286,7 +286,7 @@ const i18n = {
     tag_formulir: 'Form',
     tag_manual  : 'Manual',
     btn_view    : 'View / Download',
-    btn_download: 'Download',
+    btn_download: 'Download File',
     card1_title: 'Worker Deactivation Procedure',
     card1_desc : 'Steps to deactivate worker data through the eDabu application correctly and precisely.',
     card2_title: 'REHAB Mandiri / Alih Segmen Program',
