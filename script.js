@@ -198,7 +198,7 @@ const i18n = {
     admin2_name  : 'Febby Ai Ginting',
     admin3_name  : 'Indah Sriwardani Purba',
     ro_sml1_name : 'Jana Nofanna Siallagan',
-    ro_sml2_name : 'Abdi Ardian Parinduri',
+    ro_sml2_name : 'AdesafRiko Manurung',
     ro_toba_name : 'Hermanto Naibaho',
     ro_samosir_name: 'Fhony Br Harianja',
 
@@ -362,7 +362,7 @@ const i18n = {
     admin2_name  : 'Febby Ai Ginting',
     admin3_name  : 'Indah Sriwardani Purba',
     ro_sml1_name : 'Jana Nofanna Siallagan',
-    ro_sml2_name : 'Abdi Ardian Parinduri',
+    ro_sml2_name : 'AdesafRiko Manurung',
     ro_toba_name : 'Hermanto Naibaho',
     ro_samosir_name: 'Fhony Br Harianja',
 
